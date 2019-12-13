@@ -1,0 +1,472 @@
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card card-stats">
+            <div class="card-header card-header-warning card-header-icon" href="#gStaff" data-toggle="collapse">
+                <div class="card-icon">
+                    <i class="material-icons">account_box</i>
+                    <a routerLink="/table" style="color: white;">1</a>
+                </div>
+                <h3 class="card-title" style="color: orange;" align=center>STAFF</h3>
+            </div>
+            <div class="col-md-12 collapse" id="gStaff">
+                <div id="accordion">
+                    <div class="card">
+                        <div class="card-header" id="headingOneS">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne"
+                                    aria-expanded="true" aria-controls="collapseOne">
+                                    <i class="material-icons" style="color:orange;">
+                                        add_box
+                                    </i><a style="color: orange;">Ajouter un membre du personnel</a>
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                            <div class="card-body">
+                                <app-add-personne></app-add-personne>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingFour">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseFour"
+                                    aria-expanded="true" aria-controls="collapseFour">
+                                    <i class="material-icons" style="color:orange;">
+                                        create
+                                    </i><a style="color: orange;">Modifier les informations d'un membre du personnel</a>
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+                            <div class="card-body">
+                                <app-update-personne></app-update-personne>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingTwoS">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
+                                    aria-expanded="false" aria-controls="collapseTwo">
+                                    <i class="material-icons" style="color:orange;">assignment</i>
+                                    <a style="color: orange;">Gérer les affectations du personnel</a>
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                            <div class="card-body">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingThreeS">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed" data-toggle="collapse"
+                                    data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    <i class="material-icons" style="color:orange;">shopping_cart</i>
+                                    <a style="color: orange;">Gérer les commandes</a>
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
+                            data-parent="#accordion">
+                            <div class="card-body">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card card-stats">
+            <div class="card-header card-header-warning card-header-icon" href="#gAnimal" data-toggle="collapse">
+                <div class="card-icon">
+                    <i class="material-icons">pets</i>
+                    <a routerLink="/table" style="color: white;">1</a>
+                </div>
+                <h3 class="card-title" style="color: orange;" align=center>ANIMAUX</h3>
+            </div>
+            <div class="col-md-12 collapse" id="gAnimal">
+                <div id="accordionA">
+                    <div class="card">
+                        <div class="card-header" id="headingOneA">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOneA"
+                                    aria-expanded="true" aria-controls="collapseOneA">
+                                    <i class="material-icons" style="color:orange;">
+                                        add_box
+                                    </i><a style="color: orange;">Ajouter un animal</a>
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseOneA" class="collapse" aria-labelledby="headingOneA" data-parent="#accordionA">
+                            <div class="card-body">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingTwoA">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed" data-toggle="collapse"
+                                    data-target="#collapseTwoA" aria-expanded="false" aria-controls="collapseTwoA">
+                                    <i class="material-icons" style="color: orange;">create</i>
+                                    <a style="color: orange;">Modifier les informations d'un animal</a>
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseTwoA" class="collapse" aria-labelledby="headingTwoA" data-parent="#accordionA">
+                            <div class="card-body">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingFourA">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed" data-toggle="collapse"
+                                    data-target="#collapseFourA" aria-expanded="false" aria-controls="collapseFourA">
+                                    <i class="material-icons" style="color:orange;">gps_fixed</i>
+                                    <a style="color: orange;">Gérer l'emplacement d'un animal</a>
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseFourA" class="collapse" aria-labelledby="headingFourA"
+                            data-parent="#accordionA">
+                            <div class="card-body">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingThreeA">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed" data-toggle="collapse"
+                                    data-target="#collapseThreeA" aria-expanded="false" aria-controls="collapseThreeA">
+                                    <i class="material-icons" style="color:orange;">bug_report</i>
+                                    <a style="color: orange;">Spécifier ou modifier le type de nourriture d'un
+                                        animal</a>
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseThreeA" class="collapse" aria-labelledby="headingThreeA"
+                            data-parent="#accordionA">
+                            <div class="card-body">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card card-stats">
+            <div class="card-header card-header-warning card-header-icon" href="#gRole" data-toggle="collapse">
+                <div class="card-icon">
+                    <i class="material-icons">build</i>
+                    <a routerLink="/table" style="color: white;">1</a>
+                </div>
+                <h3 class="card-title" style="color: orange" align=center>RÔLES</h3>
+            </div>
+            <div class="col-md-12 collapse" id="gRole">
+                <div id="accordionR">
+                    <div class="card">
+                        <div class="card-header" id="headingOneR">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOneR"
+                                    aria-expanded="true" aria-controls="collapseOneR">
+                                    <i class="material-icons" style="color:orange;">add_box</i>
+                                    <a style="color: orange">Ajouter un nouveau rôle</a>
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseOneR" class="collapse" aria-labelledby="headingOneR" data-parent="#accordionR">
+                            <div class="card-body">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingTwoR">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed" data-toggle="collapse"
+                                    data-target="#collapseTwoR" aria-expanded="false" aria-controls="collapseTwoR">
+                                    <i class="material-icons" style="color: orange;">create</i>
+                                    <a style="color: orange">Modifier les rôles existants</a>
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseTwoR" class="collapse" aria-labelledby="headingTwoR" data-parent="#accordionR">
+                            <div class="card-body">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card card-stats">
+            <div class="card-header card-header-warning card-header-icon" href="#gTache" data-toggle="collapse">
+                <div class="card-icon">
+                    <i class="material-icons">announcement</i>
+                    <a routerLink="/table" style="color: white;">1</a>
+                </div>
+                <h3 class="card-title" style="color: orange;" align=center>TÂCHES</h3>
+            </div>
+            <div class="col-md-12 collapse" id="gTache">
+                <div id="accordionT">
+                    <div class="card">
+                        <div class="card-header" id="headingOneT">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOneT"
+                                    aria-expanded="true" aria-controls="collapseOneT">
+                                    <i class="material-icons" style="color:orange;">add_box</i>
+                                    <a style="color: orange;">Ajouter un nouveau type de tâche</a>
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseOneT" class="collapse" aria-labelledby="headingOneT" data-parent="#accordionT">
+                            <div class="card-body">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingTwoT">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed" data-toggle="collapse"
+                                    data-target="#collapseTwoT" aria-expanded="false" aria-controls="collapseTwoT">
+                                    <i class="material-icons" style="color: orange;">create</i>
+                                    <a style="color: orange;">Modifier les tâches existantes</a>
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseTwoT" class="collapse" aria-labelledby="headingTwoT" data-parent="#accordionT">
+                            <div class="card-body">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingThreeT">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed" data-toggle="collapse"
+                                    data-target="#collapseThreeT" aria-expanded="false" aria-controls="collapseThreeT">
+                                    <i class="material-icons" style="color: orange;">done_outline</i>
+                                    <a style="color: orange;">Gérer l'état d'avancement des tâches assignées</a>
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseThreeT" class="collapse" aria-labelledby="headingThreeT"
+                            data-parent="#accordionT">
+                            <div class="card-body">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card card-stats">
+            <div class="card-header card-header-warning card-header-icon" href="#gZone" data-toggle="collapse">
+                <div class="card-icon">
+                    <i class="material-icons">view_quilt</i>
+                    <a routerLink="/table" style="color: white;">1</a>
+                </div>
+                <h3 class="card-title" style="color: orange;" align=center>ZONES</h3>
+            </div>
+            <div class="col-md-12 collapse" id="gZone">
+                <div id="accordionZ">
+                    <div class="card">
+                        <div class="card-header" id="headingOneZ">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOneZ"
+                                    aria-expanded="true" aria-controls="collapseOneZ">
+                                    <i class="material-icons" style="color:orange;">add_box</i>
+                                    <a style="color: orange;">Ajouter une nouvelle zone</a>
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseOneZ" class="collapse" aria-labelledby="headingOneZ" data-parent="#accordionZ">
+                            <div class="card-body">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingTwoZ">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed" data-toggle="collapse"
+                                    data-target="#collapseTwoZ" aria-expanded="false" aria-controls="collapseTwoZ">
+                                    <i class="material-icons" style="color:orange;">create</i>
+                                    <a style="color: orange;">Modifier les zones existantes</a>
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseTwoZ" class="collapse" aria-labelledby="headingTwoZ" data-parent="#accordionZ">
+                            <div class="card-body">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card card-stats">
+            <div class="card-header card-header-warning card-header-icon" href="#gNourriture" data-toggle="collapse">
+                <div class="card-icon">
+                    <i class="material-icons">shopping_cart</i>
+                    <a routerLink="/table" style="color: white;">1</a>
+                </div>
+                <h3 class="card-title" style="color: orange;" align=center>NOURRITURE</h3>
+            </div>
+            <div class="col-md-12 collapse" id="gNourriture">
+                <div id="accordionN">
+                    <div class="card">
+                        <div class="card-header" id="headingOneA">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOneN"
+                                    aria-expanded="true" aria-controls="collapseOneN">
+                                    <i class="material-icons" style="color:orange;">add_box</i>
+                                    <a style="color: orange;">Ajouter un nouveau type de nourriture</a>
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseOneN" class="collapse" aria-labelledby="headingOneN" data-parent="#accordionN">
+                            <div class="card-body">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingTwoN">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed" data-toggle="collapse"
+                                    data-target="#collapseTwoN" aria-expanded="false" aria-controls="collapseTwoN">
+                                    <i class="material-icons" style="color:orange;">create</i>
+                                    <a style="color: orange;">Modifier un type de nourriture existant</a>
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseTwoN" class="collapse" aria-labelledby="headingTwoN" data-parent="#accordionN">
+                            <div class="card-body">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card card-stats">
+            <div class="card-header card-header-warning card-header-icon" href="#gEnclos" data-toggle="collapse">
+                <div class="card-icon">
+                    <i class="material-icons">eco</i>
+                    <a routerLink="/table" style="color: white;">1</a>
+                </div>
+                <h3 class="card-title" style="color: orange;" align=center>ENCLOS</h3>
+            </div>
+            <div class="col-md-12 collapse" id="gEnclos">
+                <div id="accordionE">
+                    <div class="card">
+                        <div class="card-header" id="headingOneE">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOneE"
+                                    aria-expanded="true" aria-controls="collapseOneE">
+                                    <i class="material-icons" style="color:orange;">add_box</i>
+                                    <a style="color: orange;">Ajouter un nouvel enclos</a>
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseOneE" class="collapse" aria-labelledby="headingOneE" data-parent="#accordionE">
+                            <div class="card-body">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingTwoE">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed" data-toggle="collapse"
+                                    data-target="#collapseTwoE" aria-expanded="false"
+                                    aria-controls="collapseTwoE">
+                                    <i class="material-icons" style="color:orange;">create</i>
+                                    <a style="color: orange;">Modifier un enclos existant</a>
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseTwoE" class="collapse" aria-labelledby="headingTwoE" data-parent="#accordionE">
+                            <div class="card-body">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingThreeE">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed" data-toggle="collapse"
+                                    data-target="#collapseThreeE" aria-expanded="false" aria-controls="collapseThreeE">
+                                    <i class="material-icons" style="color:orange;">gps_fixed</i>
+                                    <a style="color: orange;">Gérer l'emplacement d'un enclos</a>
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseThreeE" class="collapse" aria-labelledby="headingThreeE"
+                            data-parent="#accordionE">
+                            <div class="card-body">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card card-stats">
+            <div class="card-header card-header-warning card-header-icon" href="#gAvancement" data-toggle="collapse">
+                <div class="card-icon">
+                    <i class="material-icons">done_all</i>
+                    <a routerLink="/table" style="color: white;">1</a>
+                </div>
+                <h3 class="card-title" style="color: orange;" align=center>AVANCEMENT</h3>
+            </div>
+            <div class="col-md-12 collapse" id="gAvancement">
+                <div id="accordionAv">
+                    <div class="card">
+                        <div class="card-header" id="headingOneAv">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOneAv"
+                                    aria-expanded="true" aria-controls="collapseOneAv">
+                                    <i class="material-icons" style="color:orange;">add_box</i>
+                                    <a style="color: orange;">Ajouter un état d'avancement</a>
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseOneAv" class="collapse" aria-labelledby="headingOneAv"
+                            data-parent="#accordionAv">
+                            <div class="card-body">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingTwoAv">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed" data-toggle="collapse"
+                                    data-target="#collapseTwoAv" aria-expanded="false" aria-controls="collapseTwoAv">
+                                    <i class="material-icons" style="color:orange;">create</i>                                    
+                                    <a style="color: orange;">Modifier les états d'avancement existants</a>
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseTwoAv" class="collapse" aria-labelledby="headingTwoAv"
+                            data-parent="#accordionAv">
+                            <div class="card-body">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

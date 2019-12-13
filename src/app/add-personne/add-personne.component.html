@@ -1,0 +1,124 @@
+<div class="container-fluid">
+    <div align="center">
+        <form [formGroup]="formulairePersonne" (ngSubmit)="onSubmit()">
+            <div class="row">
+
+                <mat-form-field class="col-6">
+                    <input matInput placeholder="Nom : " [(ngModel)]="nouvellePersonne.nom" formControlName="nom"
+                        [ngClass]="{'is-invalid': submitted && f.nom.errors }">
+                    <mat-error *ngIf="submitted && f.nom.errors" class="invalid-feedback">
+                        <mat-error *ngIf="f.nom.errors.required">Le champ nom est obligatoire
+                        </mat-error>
+                    </mat-error>
+                </mat-form-field>
+
+
+                <mat-form-field class="col-6">
+                    <input matInput placeholder="Prenom : " [(ngModel)]="nouvellePersonne.prenom"
+                        formControlName="prenom" [ngClass]="{'is-invalid': submitted && f.prenom.errors }">
+                    <mat-error *ngIf="submitted && f.prenom.errors" class="invalid-feedback">
+                        <mat-error *ngIf="f.prenom.errors.required">Le champ prénom est obligatoire
+                        </mat-error>
+                    </mat-error>
+                </mat-form-field>
+
+            </div>
+
+            <div class="row">
+
+                <mat-form-field class="col-6">
+                    <input matInput placeholder="Email : " [(ngModel)]="nouvellePersonne.email" formControlName="email"
+                        [ngClass]="{'is-invalid': submitted && f.email.errors }">
+                    <mat-error *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                        <mat-error *ngIf="f.email.errors.email">L'email n'est pas valide
+                        </mat-error>
+                    </mat-error>
+                </mat-form-field>
+
+
+
+
+                <mat-form-field class="col-6">
+                    <input matInput placeholder="Login provisoire : " [(ngModel)]="nouvellePersonne.login"
+                        formControlName="login" [ngClass]="{'is-invalid': submitted && f.login.errors }">
+                    <mat-error *ngIf="submitted && f.login.errors" class="invalid-feedback">
+                        <mat-error *ngIf="f.login.errors.required">Un login provisoire est obligatoire
+                        </mat-error>
+                    </mat-error>
+                </mat-form-field>
+
+
+            </div>
+
+            <div class="row">
+
+                <mat-form-field class="col-6">
+                    <input matInput placeholder="Password provisoire : " [(ngModel)]="nouvellePersonne.password"
+                        formControlName="password" [ngClass]="{'is-invalid': submitted && f.password.errors }">
+                    <mat-error *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                        <mat-error *ngIf="f.password.errors.required">Un password provisoire est obligatoire
+                        </mat-error>
+                    </mat-error>
+                </mat-form-field>
+
+
+
+
+                <mat-form-field class="col-6">
+                    <mat-label>Rôle</mat-label>
+                    <mat-select [(ngModel)]="varRole" formControlName="role" id="role">
+                        <mat-option *ngFor="let role of listRole" [value]="role.idRole">
+                            {{role.libelle}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="submitted && f.role.errors" class="invalid-feedback">
+                        <mat-error *ngIf="f.role.errors.required">
+                            <mat-error *ngIf="f.role.errors.required">Un rôle est obligatoire</mat-error>
+                        </mat-error>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+
+            <div class="row">
+                <mat-form-field class="col-6">
+                    <mat-label>Zone</mat-label>
+                    <mat-select [(ngModel)]="varZone" formControlName="zone" id="zone">
+                        <mat-option *ngFor="let zone of listZone" [value]="zone.idZone">
+                            {{zone.nom}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="submitted && f.zone.errors" class="invalid-feedback">
+                        <mat-error *ngIf="f.zone.errors.required">
+                            <mat-error *ngIf="f.zone.errors.required">Une zone d'affectation est obligatoire
+                            </mat-error>
+                        </mat-error>
+                    </mat-error>
+                </mat-form-field>
+
+
+
+                <mat-form-field class="col-6">
+                    <mat-label>Tâche</mat-label>
+                    <mat-select [(ngModel)]="varTache" formControlName="tache" id="tache">
+                        <mat-option *ngFor="let tache of listTache" [value]="tache.idTache">
+                            {{tache.activite}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="submitted && f.zone.errors" class="invalid-feedback">
+                        <mat-error *ngIf="f.tache.errors.required">
+                            <mat-error *ngIf="f.tache.errors.required">Une tâche est obligatoire</mat-error>
+                        </mat-error>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+
+            <div class="form-group col-lg">
+                <button type="submit" class="btn btn-outline-success">Ajouter</button>
+                &nbsp;
+                <button class="btn btn-secondary" type="reset" (click)="onReset()">Annuler</button>
+            </div>
+        </form>
+    </div>
+</div>

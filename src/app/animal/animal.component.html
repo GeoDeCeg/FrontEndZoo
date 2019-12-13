@@ -1,0 +1,41 @@
+<table class="table">
+    <thead class="text-success">
+        <th>
+            ID
+        </th>
+        <th>
+            Nom
+        </th>
+        <th>
+            Famille
+        </th>
+        <th>
+            Age
+        </th>
+        <th>
+            Enclos
+        </th>
+        <th>
+            Nourriture
+        </th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let animal of listAnimal; let i = index">
+            <td>{{animal.idAnimal}}</td>
+            <td>{{animal.nom}}</td>
+            <td>{{animal.famille}}</td>
+            <td>{{animal.age}}</td>
+            <td>{{animal.enclos.numero}}</td>
+            <td>{{animal.nourriture.produit}}</td>
+            <td class="td-actions">
+                <button type="button" class="btn btn-primary btn-link btn-sm">
+                    <i class="material-icons">edit</i>
+                </button>
+                <button type="button" class="btn btn-danger btn-link btn-sm"
+                (click)="deleteAnimal(i,animal.idAnimal)">
+                    <i class="material-icons">close</i>
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>

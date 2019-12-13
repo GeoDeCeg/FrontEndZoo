@@ -1,0 +1,49 @@
+<table class="table">
+    <thead class="text-success">
+        <th>
+            ID
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            Login
+        </th>
+        <th>
+            Nom
+        </th>
+        <th>
+            Prenom
+        </th>
+        <th>
+            Role
+        </th>
+        <th>
+            Tache
+        </th>
+        <th>
+            Zone
+        </th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let personne of listPersonne; let i = index">
+            <td>{{personne.idPersonne}}</td>
+            <td>{{personne.email}}</td>
+            <td>{{personne.login}}</td>
+            <td>{{personne.nom}}</td>
+            <td>{{personne.prenom}}</td>
+            <td>{{personne.role.libelle}}</td>
+            <td>{{personne.tache.activite}}</td>
+            <td>{{personne.zone.nom}}</td>
+            <td class="td-actions">
+                <button type="button" title="Editer" class="btn btn-primary btn-link btn-sm">
+                    <i class="material-icons">edit</i>
+                </button>
+                <button type="button" class="btn btn-danger btn-link btn-sm"
+                (click)="deletePersonne(i, personne.idPersonne)">
+                    <i class="material-icons">close</i>
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>

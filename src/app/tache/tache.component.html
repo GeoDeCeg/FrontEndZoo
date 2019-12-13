@@ -1,0 +1,37 @@
+<table class="table">
+    <thead class="text-success">
+        <th>
+            ID
+        </th>
+        <th>
+            Activite
+        </th>
+        <th>
+            Date
+        </th>
+        <th>
+            Duree
+        </th>
+        <th>
+            Avancement
+        </th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let tache of listTache; let i = index">
+            <td>{{tache.idTache}}</td>
+            <td>{{tache.activite}}</td>
+            <td>{{tache.date}}</td>
+            <td>{{tache.duree}}</td>
+            <td>{{tache.avancement.libelle}}</td>
+            
+            <td class="td-actions">
+                <button type="button" rel="tooltip" title="Editer" class="btn btn-primary btn-link btn-sm">
+                    <i class="material-icons">edit</i>
+                </button>
+                <button type="button" rel="tooltip" title="Supprimer" class="btn btn-danger btn-link btn-sm">
+                    <i class="material-icons">close</i>
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>

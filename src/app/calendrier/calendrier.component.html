@@ -1,0 +1,30 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header card-header-primary">
+            </div>
+            <div class="card-body">
+                <full-calendar #calendar 
+                    [locale]="options.locale" defaultView="timeGridWeek"
+                    [weekends]="false"
+                    [plugins]="calendarPlugins"
+                    [events]="calendarEvents" (dateClick)="handleDateClick($event)"
+                    [allDaySlot]="false"
+                    [header]="{
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+                    }"
+                    [eventColor]="options.eventColor"
+                    [eventTextColor]="options.eventTextColor"
+                    [droppable]="true"
+                    [editable] ="true"
+                    [handleWindowResize]="true"
+                    [height] = 550
+                     >
+
+                </full-calendar>
+            </div>
+        </div>
+    </div>
+</div>

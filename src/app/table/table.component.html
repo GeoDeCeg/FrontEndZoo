@@ -1,0 +1,109 @@
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header card-header-tabs card-header-primary">
+                <div class="nav-tabs-navigation">
+                    <div class="nav-tabs-wrapper">
+                        <span class="nav-tabs-title">Lister :</span>
+                        <ul class="nav nav-tabs" data-tabs="tabs">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#tous" data-toggle="tab">
+                                    <i class="material-icons">
+                                        select_all
+                                    </i> Tout
+                                    <div class="ripple-container"></div>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#staff" data-toggle="tab">
+                                    <i class="material-icons">account_box</i> Staff
+                                    <div class="ripple-container"></div>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#animal" data-toggle="tab">
+                                    <i class="material-icons">pets</i> Animaux
+                                    <div class="ripple-container"></div>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#role" data-toggle="tab">
+                                    <i class="material-icons">build</i> Roles
+                                    <div class="ripple-container"></div>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#tache" data-toggle="tab">
+                                    <i class="material-icons">announcement</i> Taches
+                                    <div class="ripple-container"></div>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#zone" data-toggle="tab">
+                                    <i class="material-icons">view_quilt</i> Zones
+                                    <div class="ripple-container"></div>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#nourriture" data-toggle="tab">
+                                    <i class="material-icons">shopping_cart</i> Nourriture
+                                    <div class="ripple-container"></div>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#enclos" data-toggle="tab">
+                                    <i class="material-icons">eco</i> Enclos
+                                    <div class="ripple-container"></div>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#avancement" data-toggle="tab">
+                                    <i class="material-icons">done_all</i> Avancement
+                                    <div class="ripple-container"></div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-body">
+                <div class="tab-content">
+                    <div id="staff" class="tab-pane">
+                        <app-personne></app-personne>
+                    </div>
+                    <div id="animal" class="tab-pane">
+                        <app-animal></app-animal>
+                    </div>
+                    <div id="role" class="tab-pane">
+                        <app-role></app-role>
+                    </div>
+                    <div id="tache" class="tab-pane">
+                        <app-tache></app-tache>
+                    </div>
+                    <div id="zone" class="tab-pane">
+                        <app-zone></app-zone>
+                    </div>
+                    <div id="nourriture" class="tab-pane">
+                        <app-nourriture></app-nourriture>
+                    </div>
+                    <div id="enclos" class="tab-pane">
+                        <app-enclos></app-enclos>
+                    </div>
+                    <div id="avancement" class="tab-pane">
+                        <app-avancement></app-avancement>
+                    </div>
+                    <div id="tous" class="tab-pane">
+                        <app-personne></app-personne>
+                        <app-animal></app-animal>
+                        <app-role></app-role>
+                        <app-tache></app-tache>
+                        <app-nourriture></app-nourriture>
+                        <app-enclos></app-enclos>
+                        <app-avancement></app-avancement>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

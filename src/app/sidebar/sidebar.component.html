@@ -1,0 +1,40 @@
+<div class="sidebar" data-color="orange" data-background-color="green" data-image="../assets/img/sidebar-5.jpg">
+    <!--
+          Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+  
+          Tip 2: you can also add an image using data-image tag
+      -->
+    <div class="logo">
+        <a href="" class="simple-text logo-normal">
+            ACCUEIL
+        </a>
+    </div>
+    <div class="sidebar-wrapper">
+        <ul class="nav">
+            <li class="nav-item " [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                <a class="nav-link">
+                    <i class="material-icons">person</i>
+                    <p>Mon profil</p>
+                </a>
+            </li>
+            <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                <a class="nav-link" routerLink="gestion">
+                    <i class="material-icons">dashboard</i>
+                    <p>Gestion</p>
+                </a>
+            </li>
+            <li class="nav-item " [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                <a class="nav-link" routerLink="table">
+                    <i class="material-icons">content_paste</i>
+                    <p>Consultation</p>
+                </a>
+            </li>
+            <li class="nav-item " [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                <a class="nav-link" routerLink="calendrier">
+                    <i class="material-icons">event</i>
+                    <p>Emploi du temps</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

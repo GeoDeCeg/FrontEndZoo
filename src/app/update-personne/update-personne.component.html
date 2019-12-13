@@ -1,0 +1,99 @@
+<div class="container-fluid">
+    <div align="center">
+        <mat-form-field>
+            <mat-label>Personne à modifier</mat-label>
+            <mat-select [(ngModel)]="idPersonneUpdate" (selectionChange)="target($event.value)">
+                <mat-option *ngFor="let personne of listPersonne" [value]="personne.idPersonne">
+                    {{personne.nom}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        &nbsp;
+        <mat-checkbox [(ngModel)]="bool" color="warn">Informations</mat-checkbox>
+
+        <form *ngIf="bool" [formGroup]="formulaireUpdatePersonne" (ngSubmit)="onSubmit()">
+            <div class="row">
+                <mat-form-field class="col-6">
+                    <input matInput placeholder="Prenom : " [(ngModel)]="targetPersonne.prenom" formControlName="prenom"
+                        [ngClass]="{'is-invalid': submitted && f.prenom.errors }">
+                    <mat-error *ngIf="submitted && f.prenom.errors" class="invalid-feedback">
+                        <mat-error *ngIf="f.prenom.errors.required">Le champ prénom est obligatoire
+                        </mat-error>
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="col-6">
+                    <input matInput placeholder="nom : " [(ngModel)]="targetPersonne.nom" formControlName="nom"
+                        [ngClass]="{'is-invalid': submitted && f.nom.errors }">
+                    <mat-error *ngIf="submitted && f.nom.errors" class="invalid-feedback">
+                        <mat-error *ngIf="f.nom.errors.required">Le champ nom est obligatoire
+                        </mat-error>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <mat-form-field class="col-6">
+                    <input matInput placeholder="Login : " [(ngModel)]="targetPersonne.login" formControlName="login"
+                        [ngClass]="{'is-invalid': submitted && f.login.errors }">
+                    <mat-error *ngIf="submitted && f.login.errors" class="invalid-feedback">
+                        <mat-error *ngIf="f.login.errors.required">Le champ login est obligatoire
+                        </mat-error>
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="col-6">
+                    <input matInput placeholder="Password : " [(ngModel)]="targetPersonne.password"
+                        formControlName="password" [ngClass]="{'is-invalid': submitted && f.password.errors }">
+                    <mat-error *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                        <mat-error *ngIf="f.password.errors.required">Le champ password est obligatoire
+                        </mat-error>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <mat-form-field class="col-6">
+                    <input matInput placeholder="Email : " [(ngModel)]="targetPersonne.email" formControlName="email"
+                        [ngClass]="{'is-invalid': submitted && f.email.errors }">
+                    <mat-error *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                        <mat-error *ngIf="f.email.errors.email">L'email n'est pas valide
+                        </mat-error>
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="col-6">
+                    <mat-label>Rôle</mat-label>
+                    <mat-select [compareWith]="byIdRole" [(ngModel)]="targetPersonne.role" formControlName="role">
+                        <mat-option *ngFor="let role of listRole, let i = index" [value]="role">
+                            {{role.libelle}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <mat-form-field class="col-6">
+                    <mat-label>Zone</mat-label>
+                    <mat-select [compareWith]="byIdZone" [(ngModel)]="targetPersonne.zone" formControlName="zone">
+                        <mat-option *ngFor="let zone of listZone, let i = index" [value]="zone">
+                            {{zone.nom}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+
+                <mat-form-field class="col-6">
+                    <mat-label>Tâche</mat-label>
+                    <mat-select [compareWith]="byIdTache" [(ngModel)]="targetPersonne.tache" formControlName="tache">
+                        <mat-option *ngFor="let tache of listTache, let i = index" [value]="tache">
+                            {{tache.activite}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="form-group col-lg">
+                <button type="submit" [disabled]="!formulaireUpdatePersonne.valid" class="btn btn-outline-success">Modifier</button>
+                &nbsp;
+                <button class="btn btn-secondary" type="reset" (click)="onReset()">Annuler</button>
+            </div>
+        </form>
+    </div>
+</div>
