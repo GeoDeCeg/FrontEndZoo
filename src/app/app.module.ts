@@ -28,7 +28,12 @@ import { AddPersonneComponent } from './add-personne/add-personne.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UpdatePersonneComponent } from './update-personne/update-personne.component';
 import { FullCalendarModule } from '@fullcalendar/angular'; // for FullCalendar!
-import { CalendrierComponent } from './calendrier/calendrier.component'; 
+import { CalendrierComponent } from './calendrier/calendrier.component';
+import { AddTacheComponent } from './add-tache/add-tache.component'; 
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule, MatRippleModule} from '@angular/material/core';
+import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
+
 
 @NgModule({
   declarations: [
@@ -49,7 +54,8 @@ import { CalendrierComponent } from './calendrier/calendrier.component';
     GestionComponent,
     AddPersonneComponent,
     UpdatePersonneComponent,
-    CalendrierComponent
+    CalendrierComponent,
+    AddTacheComponent
   ],
   imports: [
     BrowserModule,
@@ -63,9 +69,13 @@ import { CalendrierComponent } from './calendrier/calendrier.component';
     MatInputModule,
     MatSlideToggleModule,
     MatCheckboxModule,
-    FullCalendarModule 
+    FullCalendarModule ,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatRippleModule
+
   ],
-  providers: [],
+  providers: [{provide: MAT_DATE_LOCALE, useValue: 'fr-FR'}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

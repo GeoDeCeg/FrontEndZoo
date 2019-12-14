@@ -48,5 +48,8 @@ export class PersonneService {
     return this.http.put("http://localhost:8080/personne/all/"+idPersonne+"/"+idRole+"/"+idZone+"/"+idTache,"")
   }
 
+  count (){
+    return this.http.get("http://localhost:8080/personne/count").pipe();
+  }
 
 }

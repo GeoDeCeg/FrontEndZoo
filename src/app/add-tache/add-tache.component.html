@@ -1,0 +1,52 @@
+<div class="container-fluid">
+    <div align="center">
+        <form [formGroup]="formulaireTache" (ngSubmit)="onSubmit()">
+            <div class="row">
+
+                <mat-form-field class="col-6">
+                    <input matInput placeholder="activite : " [(ngModel)]="nouvelleTache.activite"
+                        formControlName="activite" [ngClass]="{'is-invalid': submitted && f.activite.errors }">
+                    <mat-error *ngIf="submitted && f.activite.errors" class="invalid-feedback">
+                        <mat-error *ngIf="f.activite.errors.required">Une activité est obligatoire
+                        </mat-error>
+                    </mat-error>
+                </mat-form-field>
+
+
+                <mat-form-field class="col-6">
+                    <input matInput [matDatepicker]="picker1" placeholder="Date :" formControlName="date"
+                    [(ngModel)]="nouvelleTache.date" (dateInput)="addEvent('input', $event)">
+                    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                    <mat-datepicker #picker1 touchUi></mat-datepicker>
+                </mat-form-field>
+
+            </div>
+
+            <div class="row">
+                <mat-form-field class="col-6">
+                    <input matInput placeholder="Durée : " [(ngModel)]="nouvelleTache.duree" formControlName="duree">
+                </mat-form-field>
+
+                <mat-form-field class="col-6">
+                    <mat-label>Rôle :</mat-label>
+                    <mat-select [(ngModel)]="varAvancement" formControlName="avancement" id="avancement">
+                        <mat-option *ngFor="let avancement of listAvancement" [value]="avancement.idAvancement">
+                            {{avancement.libelle}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="submitted && f.avancement.errors" class="invalid-feedback">
+                        <mat-error *ngIf="f.avancement.errors.required">Un avancement concernant la tâche est
+                            obligatoire
+                        </mat-error>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="form-group col-lg">
+                <button type="submit" class="btn btn-outline-success">Ajouter</button>
+                &nbsp;
+                <button class="btn btn-secondary" type="reset" (click)="onReset()">Annuler</button>
+            </div>
+        </form>
+    </div>
+</div>

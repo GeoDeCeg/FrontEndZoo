@@ -30,8 +30,6 @@ export class CalendrierComponent implements OnInit {
       locale: frLocale,
       eventColor : '#008000',
       eventTextColor : '#FFFFFF',
-      
-
     }
 
   }

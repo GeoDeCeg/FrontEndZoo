@@ -4,7 +4,7 @@
             <div class="card-header card-header-warning card-header-icon" href="#gStaff" data-toggle="collapse">
                 <div class="card-icon">
                     <i class="material-icons">account_box</i>
-                    <a routerLink="/table" style="color: white;">1</a>
+                    <a routerLink="/table" style="color: white;">{{count}}</a>
                 </div>
                 <h3 class="card-title" style="color: orange;" align=center>STAFF</h3>
             </div>
@@ -55,23 +55,6 @@
                             </h5>
                         </div>
                         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                            <div class="card-body">
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-header" id="headingThreeS">
-                            <h5 class="mb-0">
-                                <button class="btn btn-link collapsed" data-toggle="collapse"
-                                    data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    <i class="material-icons" style="color:orange;">shopping_cart</i>
-                                    <a style="color: orange;">Gérer les commandes</a>
-                                </button>
-                            </h5>
-                        </div>
-                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
-                            data-parent="#accordion">
                             <div class="card-body">
 
                             </div>
@@ -228,7 +211,7 @@
                         </div>
                         <div id="collapseOneT" class="collapse" aria-labelledby="headingOneT" data-parent="#accordionT">
                             <div class="card-body">
-
+                                <app-add-tache></app-add-tache>
                             </div>
                         </div>
                     </div>
@@ -355,6 +338,23 @@
                             </div>
                         </div>
                     </div>
+                    <div class="card">
+                        <div class="card-header" id="headingThreeN">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed" data-toggle="collapse"
+                                    data-target="#collapseThreeN" aria-expanded="false" aria-controls="collapseThreeN">
+                                    <i class="material-icons" style="color:orange;">shopping_cart</i>
+                                    <a style="color: orange;">Gérer les commandes</a>
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseThreeN" class="collapse" aria-labelledby="headingThreeN"
+                            data-parent="#accordionN">
+                            <div class="card-body">
+
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -388,8 +388,7 @@
                         <div class="card-header" id="headingTwoE">
                             <h5 class="mb-0">
                                 <button class="btn btn-link collapsed" data-toggle="collapse"
-                                    data-target="#collapseTwoE" aria-expanded="false"
-                                    aria-controls="collapseTwoE">
+                                    data-target="#collapseTwoE" aria-expanded="false" aria-controls="collapseTwoE">
                                     <i class="material-icons" style="color:orange;">create</i>
                                     <a style="color: orange;">Modifier un enclos existant</a>
                                 </button>
@@ -453,7 +452,7 @@
                             <h5 class="mb-0">
                                 <button class="btn btn-link collapsed" data-toggle="collapse"
                                     data-target="#collapseTwoAv" aria-expanded="false" aria-controls="collapseTwoAv">
-                                    <i class="material-icons" style="color:orange;">create</i>                                    
+                                    <i class="material-icons" style="color:orange;">create</i>
                                     <a style="color: orange;">Modifier les états d'avancement existants</a>
                                 </button>
                             </h5>

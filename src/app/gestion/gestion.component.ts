@@ -1,4 +1,5 @@
 import { Component, OnInit} from '@angular/core';
+import {PersonneService} from '../service/personne/personne.service';
 
 @Component({
   selector: 'app-gestion',
@@ -7,10 +8,17 @@ import { Component, OnInit} from '@angular/core';
 })
 export class GestionComponent implements OnInit {
 
+  count : any;
 
-  constructor() { }
+
+  constructor(private personneService : PersonneService) { }
 
   ngOnInit() {
+    this.personneService.count().subscribe((res:Response)=>{
+      this.count = res;
+      console.log(this.count);
+    })
+    
   }
 
 
