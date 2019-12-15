@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router} from '@angular/router';
 import {Tache} from '../models/tache';
 import {TacheService} from '../service/tache/tache.service';
+import {DatePipe } from '@angular/common'
 
 @Component({
   selector: 'app-tache',
@@ -11,12 +12,14 @@ import {TacheService} from '../service/tache/tache.service';
 export class TacheComponent implements OnInit {
 
   listTache : Tache[];
+  date : Date;
 
-  constructor(private router : Router, private tacheService : TacheService) { }
+  constructor(private router : Router, private tacheService : TacheService, private datePipe: DatePipe) { }
 
   ngOnInit() {
     this.tacheService.getAllTache().subscribe(data=>{
       this.listTache = data;
+      
     })
   }
 

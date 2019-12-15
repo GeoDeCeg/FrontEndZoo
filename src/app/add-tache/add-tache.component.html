@@ -4,7 +4,7 @@
             <div class="row">
 
                 <mat-form-field class="col-6">
-                    <input matInput placeholder="activite : " [(ngModel)]="nouvelleTache.activite"
+                    <input matInput placeholder="Activite : " [(ngModel)]="nouvelleTache.activite"
                         formControlName="activite" [ngClass]="{'is-invalid': submitted && f.activite.errors }">
                     <mat-error *ngIf="submitted && f.activite.errors" class="invalid-feedback">
                         <mat-error *ngIf="f.activite.errors.required">Une activité est obligatoire
@@ -12,14 +12,12 @@
                     </mat-error>
                 </mat-form-field>
 
-
-                <mat-form-field class="col-6">
-                    <input matInput [matDatepicker]="picker1" placeholder="Date :" formControlName="date"
-                    [(ngModel)]="nouvelleTache.date" (dateInput)="addEvent('input', $event)">
-                    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-                    <mat-datepicker #picker1 touchUi></mat-datepicker>
+                <mat-form-field class="col-6" appearance="outline">
+                    <input matInput [owlDateTime]="dt2" placeholder="Date/Heure :" formControlName="date"
+                        [(ngModel)]="nouvelleTache.date" [owlDateTimeTrigger]="dt2" autocomplete="off" >
+                    <mat-icon matSuffix [owlDateTimeTrigger]="dt2">calendar_today</mat-icon>
+                    <owl-date-time #dt2 ></owl-date-time>
                 </mat-form-field>
-
             </div>
 
             <div class="row">

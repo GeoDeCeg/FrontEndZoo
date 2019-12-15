@@ -1,12 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {MatSelectModule} from '@angular/material/select';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material';
-import {MatSlideToggleModule} from '@angular/material/slide-toggle';
-import {MatCheckboxModule} from '@angular/material/checkbox';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatSelectModule } from '@angular/material/select';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -29,10 +29,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UpdatePersonneComponent } from './update-personne/update-personne.component';
 import { FullCalendarModule } from '@fullcalendar/angular'; // for FullCalendar!
 import { CalendrierComponent } from './calendrier/calendrier.component';
-import { AddTacheComponent } from './add-tache/add-tache.component'; 
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatNativeDateModule, MatRippleModule} from '@angular/material/core';
-import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
+import { AddTacheComponent } from './add-tache/add-tache.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule, MatRippleModule } from '@angular/material/core';
+import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
+import { DatePipe } from '@angular/common';
+import { AmazingTimePickerModule } from 'amazing-time-picker';
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
+import { OWL_DATE_TIME_LOCALE } from 'ng-pick-datetime';
+import {MatIconModule} from '@angular/material/icon';
+
 
 
 @NgModule({
@@ -69,13 +75,19 @@ import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/
     MatInputModule,
     MatSlideToggleModule,
     MatCheckboxModule,
-    FullCalendarModule ,
+    FullCalendarModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatRippleModule
+    MatRippleModule,
+    AmazingTimePickerModule,
+    OwlDateTimeModule,
+    OwlNativeDateTimeModule,
+    MatIconModule
 
   ],
-  providers: [{provide: MAT_DATE_LOCALE, useValue: 'fr-FR'}],
+  providers: [{ provide: MAT_DATE_LOCALE, useValue: 'fr-FR' },
+              {provide: OWL_DATE_TIME_LOCALE, useValue: 'fr'},
+    DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

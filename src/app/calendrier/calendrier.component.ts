@@ -1,5 +1,5 @@
 
-import { Component, ViewChild, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FullCalendarComponent } from '@fullcalendar/angular';
 import { EventInput } from '@fullcalendar/core';
 import { OptionsInput } from '@fullcalendar/core';
@@ -13,6 +13,7 @@ import { TacheService } from '../service/tache/tache.service';
 
 
 
+
 @Component({
   selector: 'app-calendrier',
   templateUrl: './calendrier.component.html',
@@ -20,33 +21,38 @@ import { TacheService } from '../service/tache/tache.service';
 })
 export class CalendrierComponent implements OnInit {
 
+  listTache: Tache[];
   tache: Tache = new Tache();
   options: OptionsInput;
+  calendarVisible = true;
+  calendarPlugins = [dayGridPlugin, timeGrigPlugin, interactionPlugin];
+  calendarEvents: EventInput[];
 
-  @ViewChild('calendar',{static: false}) fullcalendar: FullCalendarComponent;
 
-  ngOnInit() {
-    this.options ={
-      locale: frLocale,
-      eventColor : '#008000',
-      eventTextColor : '#FFFFFF',
-    }
 
-  }
 
   constructor(private tacheService: TacheService) { }
 
-  
- 
-  calendarVisible = true;
-  calendarPlugins = [dayGridPlugin, timeGrigPlugin, interactionPlugin];
-  calendarEvents: EventInput[] = [
-    { title: 'Tâche en cours', start: new Date() }
-  ];
+  // @ViewChild('calendar', { static: false }) fullcalendar: FullCalendarComponent;
 
+  ngOnInit() {
+    this.options = {
+      locale: frLocale,
+      eventColor: '#008000',
+      eventTextColor: '#FFFFFF',
+    }
+    
+    this.tacheService.getAllTache().subscribe(data => {
+      this.listTache = data;
+      this.calendarEvents = data;
+      for (let index = 0; index < this.listTache.length; index++) {
+        this.calendarEvents[index].title = this.listTache[index].activite.toString();        
+      }
+    })
+  }
 
   handleDateClick(arg) {
-    
+
     if (confirm('Ajouter une tâche en date du : ' + arg.date.toString() + ' ?')) {
       this.calendarEvents = this.calendarEvents.concat({ // add new event data. must create new array
         title: 'nouvelle tâche',

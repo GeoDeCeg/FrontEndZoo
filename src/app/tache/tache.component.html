@@ -20,7 +20,7 @@
         <tr *ngFor="let tache of listTache; let i = index">
             <td>{{tache.idTache}}</td>
             <td>{{tache.activite}}</td>
-            <td>{{tache.date}}</td>
+            <td>{{tache.date | date: 'dd/MM/yyyy à HH:mm'}}</td>
             <td>{{tache.duree}}</td>
             <td>{{tache.avancement.libelle}}</td>
             
