@@ -8,6 +8,11 @@ import { MatInputModule } from '@angular/material';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 
+import { registerLocaleData } from '@angular/common';
+import localeFr from '@angular/common/locales/fr';
+import localeFrExtra from '@angular/common/locales/extra/fr';
+registerLocaleData(localeFr, 'fr-FR', localeFrExtra);
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FooterComponent } from './footer/footer.component';
@@ -32,12 +37,18 @@ import { CalendrierComponent } from './calendrier/calendrier.component';
 import { AddTacheComponent } from './add-tache/add-tache.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule, MatRippleModule } from '@angular/material/core';
-import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { DatePipe } from '@angular/common';
 import { AmazingTimePickerModule } from 'amazing-time-picker';
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 import { OWL_DATE_TIME_LOCALE } from 'ng-pick-datetime';
 import {MatIconModule} from '@angular/material/icon';
+import {MAT_MOMENT_DATE_ADAPTER_OPTIONS} from '@angular/material-moment-adapter'
+import { LOCALE_ID } from '@angular/core';
+import { UpdateTacheComponent } from './update-tache/update-tache.component';
+
+
+
 
 
 
@@ -61,7 +72,8 @@ import {MatIconModule} from '@angular/material/icon';
     AddPersonneComponent,
     UpdatePersonneComponent,
     CalendrierComponent,
-    AddTacheComponent
+    AddTacheComponent,
+    UpdateTacheComponent
   ],
   imports: [
     BrowserModule,
@@ -82,11 +94,14 @@ import {MatIconModule} from '@angular/material/icon';
     AmazingTimePickerModule,
     OwlDateTimeModule,
     OwlNativeDateTimeModule,
-    MatIconModule
+    MatIconModule,
+
 
   ],
   providers: [{ provide: MAT_DATE_LOCALE, useValue: 'fr-FR' },
-              {provide: OWL_DATE_TIME_LOCALE, useValue: 'fr'},
+              {provide: OWL_DATE_TIME_LOCALE, useValue: 'fr-FR'},
+              {provide: MAT_MOMENT_DATE_ADAPTER_OPTIONS, useValue: 'fr'},
+              {provide: LOCALE_ID,useValue: "fr-FR"},
     DatePipe],
   bootstrap: [AppComponent]
 })

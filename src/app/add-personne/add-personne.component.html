@@ -96,21 +96,6 @@
                     </mat-error>
                 </mat-form-field>
 
-
-
-                <mat-form-field class="col-6">
-                    <mat-label>Tâche</mat-label>
-                    <mat-select [(ngModel)]="varTache" formControlName="tache" id="tache">
-                        <mat-option *ngFor="let tache of listTache" [value]="tache.idTache">
-                            {{tache.activite}}
-                        </mat-option>
-                    </mat-select>
-                    <mat-error *ngIf="submitted && f.zone.errors" class="invalid-feedback">
-                        <mat-error *ngIf="f.tache.errors.required">
-                            <mat-error *ngIf="f.tache.errors.required">Une tâche est obligatoire</mat-error>
-                        </mat-error>
-                    </mat-error>
-                </mat-form-field>
             </div>
 
 

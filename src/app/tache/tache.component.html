@@ -10,17 +10,22 @@
             Date
         </th>
         <th>
+            Personne
+        </th>
+        <th>
             Duree
         </th>
         <th>
             Avancement
         </th>
+        
     </thead>
     <tbody>
         <tr *ngFor="let tache of listTache; let i = index">
             <td>{{tache.idTache}}</td>
             <td>{{tache.activite}}</td>
             <td>{{tache.date | date: 'dd/MM/yyyy à HH:mm'}}</td>
+            <td>{{tache.personne.nom}}</td>
             <td>{{tache.duree}}</td>
             <td>{{tache.avancement.libelle}}</td>
             
@@ -28,7 +33,7 @@
                 <button type="button" rel="tooltip" title="Editer" class="btn btn-primary btn-link btn-sm">
                     <i class="material-icons">edit</i>
                 </button>
-                <button type="button" rel="tooltip" title="Supprimer" class="btn btn-danger btn-link btn-sm">
+                <button type="button" rel="tooltip" title="Supprimer" (click)="deleteTache(i,tache.idTache)" class="btn btn-danger btn-link btn-sm">
                     <i class="material-icons">close</i>
                 </button>
             </td>

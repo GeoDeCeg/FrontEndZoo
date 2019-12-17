@@ -24,14 +24,14 @@ export class AddPersonneComponent implements OnInit {
   submitted = false;
 
   listRole: Role[];
-  listTache: Tache[];
+  // listTache: Tache[];
   listZone: Zone[];
   varRole: any;
   varTache: any;
   varZone: any;
 
   constructor(private formBuilder: FormBuilder, private router: Router, private personneService: PersonneService,
-    private roleService: RoleService, private tacheService: TacheService, private zoneService: ZoneService) { }
+    private roleService: RoleService, private zoneService: ZoneService) { }
 
   ngOnInit() {
     this.formulairePersonne = this.formBuilder.group({
@@ -42,15 +42,15 @@ export class AddPersonneComponent implements OnInit {
       login: ['', Validators.required],
       password: ['', Validators.required],
       role: ['', Validators.required],
-      tache: ['', Validators.required],
+      // tache: ['', Validators.required],
       zone: ['', Validators.required],
     });
     this.roleService.getAllRole().subscribe(data => {
       this.listRole = data;
     });
-    this.tacheService.getAllTache().subscribe(data => {
-      this.listTache = data;
-    });
+    // this.tacheService.getAllTache().subscribe(data => {
+    //   this.listTache = data;
+    // });
     this.zoneService.getAllZone().subscribe(data => {
       this.listZone = data;
     });
@@ -87,7 +87,7 @@ export class AddPersonneComponent implements OnInit {
         console.log(this.varTache);
         console.log(this.varZone);
 
-        this.personneService.affecterPersonne(res['idPersonne'], this.varRole, this.varZone, this.varTache).subscribe((res => {
+        this.personneService.affecterPersonne(res['idPersonne'], this.varRole, this.varZone).subscribe((res => {
           console.log(res);
           if (res) {
             this.notif();

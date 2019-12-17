@@ -5,7 +5,6 @@ export class Personne{
     login : String;
     password: String;
     email : String;
-    tache : any;
     zone : any;
     role : any;
 }

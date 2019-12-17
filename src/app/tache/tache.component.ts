@@ -23,7 +23,12 @@ export class TacheComponent implements OnInit {
     })
   }
 
-  deleteTache(){
-    
+  deleteTache(index,id:number){
+    this.tacheService.deleteTache(id).subscribe((res:Response)=>{
+      console.log(res);
+      if(res){
+        this.listTache.splice(index,1)
+      };
+    })
   }
 }

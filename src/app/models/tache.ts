@@ -4,4 +4,5 @@ export class Tache{
     date: Date;
     duree : number;
     avancement : any;
+    personne : any;
 }

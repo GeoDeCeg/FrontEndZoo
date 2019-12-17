@@ -4,26 +4,44 @@
             <div class="card-header card-header-primary">
             </div>
             <div class="card-body">
-                <full-calendar #calendar 
-                    [locale]="options.locale" defaultView="timeGridWeek"
-                    [weekends]="false"
-                    [plugins]="calendarPlugins"
-                    [events]="calendarEvents" (dateClick)="handleDateClick($event)"
-                    [allDaySlot]="false"
+                <full-calendar #calendar [locale]="options.locale" defaultView="timeGridWeek" [weekends]="false"
+                    [plugins]="calendarPlugins" [events]="calendarEvents" (dateClick)="handleDateClick($event)"
+                    [allDaySlot]="false" [minTime]="options.minTime" [maxTime]="options.maxTime"
                     [header]="{
                     left: 'prev,next today',
                     center: 'title',
                     right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
-                    }"
-                    [eventColor]="options.eventColor"
-                    [eventTextColor]="options.eventTextColor"
-                    [droppable]="true"
-                    [editable] ="true"
-                    [handleWindowResize]="true"
-                    [height] = 550
-                     >
+                    }" [eventColor]="options.eventColor" [eventTextColor]="options.eventTextColor" [droppable]="true"
+                    [editable]="true"(eventResize)="eventResize($event)" [handleWindowResize]="true" [height]=593>
 
                 </full-calendar>
+
+                <div class="modal" id="myModal" [style.display]="showModal ? 'block' : 'none'">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                                <h4 class="modal-title">Nouvelle tâche le : {{dateModal}}</h4>
+                                <button type="button" class="close" data-dismiss="modal"
+                                    (click)="hide()">&times;</button>
+                            </div>
+
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                                <app-add-tache></app-add-tache>
+                            </div>
+
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal"
+                                    (click)="hide()">Close</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                
             </div>
         </div>
     </div>

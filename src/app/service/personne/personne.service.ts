@@ -29,11 +29,7 @@ export class PersonneService {
     return this.http.put("http://localhost:8080/personne/"+id,personne).pipe();
   }
 
-  affecterTachePersonne(idPersonne: number, idTache : number){
-
-    return this.http.put("http://localhost:8080/personne/tache/"+idPersonne+"/"+idTache,"").pipe();
-  }
-
+  
   affecterRolePersonne(idPersonne: number, idRole : number){
 
     return this.http.put("http://localhost:8080/personne/role/"+idPersonne+"/"+idRole,"").pipe();
@@ -44,8 +40,8 @@ export class PersonneService {
     return this.http.put("http://localhost:8080/personne/zone/"+idPersonne+"/"+idZone,"").pipe();
   }
 
-  affecterPersonne (idPersonne : number, idRole : number, idZone : number, idTache : number){
-    return this.http.put("http://localhost:8080/personne/all/"+idPersonne+"/"+idRole+"/"+idZone+"/"+idTache,"")
+  affecterPersonne (idPersonne : number, idRole : number, idZone : number){
+    return this.http.put("http://localhost:8080/personne/all/"+idPersonne+"/"+idRole+"/"+idZone,"")
   }
 
   count (){

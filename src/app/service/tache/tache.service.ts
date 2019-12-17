@@ -32,4 +32,12 @@ export class TacheService {
   affecterAvancementTache(idTache : number, idAvancement : number){
     return this.http.put("http://localhost:8080/tache/avancement/"+idTache+"/"+idAvancement,"").pipe();
   }
+
+  affecterPersonneTache(idTache : number, idPersonne : number){
+    return this.http.put("http://localhost:8080/tache/personne/"+idTache+"/"+idPersonne,"").pipe();
+  }
+
+  affecterTache(idTache: number, idAvancement : number, idPersonne:number){
+    return this.http.put("http://localhost:8080/tache/all/"+idTache+"/"+idAvancement+"/"+idPersonne,"").pipe();
+  }
 }

@@ -1,10 +1,21 @@
 <div class="container-fluid">
     <div align="center">
-        <form [formGroup]="formulaireTache" (ngSubmit)="onSubmit()">
+        <mat-form-field>
+            <mat-label>Tâche à modifier</mat-label>
+            <mat-select [(ngModel)]="idTacheUpdate" (selectionChange)="target($event.value)">
+                <mat-option *ngFor="let tache of listTache" [value]="tache.idTache">
+                    {{tache.activite}} {{tache.date  | date: 'dd/MM/yyyy à HH:mm'}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        &nbsp;
+        <mat-checkbox [(ngModel)]="bool" color="warn">Informations</mat-checkbox>
+
+        <form *ngIf="bool" [formGroup]="formulaireUpdateTache" (ngSubmit)="onSubmit()">
             <div class="row">
 
                 <mat-form-field class="col-6">
-                    <input matInput placeholder="Activite : " [(ngModel)]="nouvelleTache.activite"
+                    <input matInput placeholder="Activite : " [(ngModel)]="targetTache.activite"
                         formControlName="activite" [ngClass]="{'is-invalid': submitted && f.activite.errors }">
                     <mat-error *ngIf="submitted && f.activite.errors" class="invalid-feedback">
                         <mat-error *ngIf="f.activite.errors.required">Une activité est obligatoire
@@ -13,8 +24,8 @@
                 </mat-form-field>
 
                 <mat-form-field class="col-6" appearance="outline">
-                    <input matInput [owlDateTime]="dt2" placeholder="Date/Heure :" formControlName="date"
-                        [(ngModel)]="nouvelleTache.date" [owlDateTimeTrigger]="dt2" autocomplete="off" [min]="currentDate">
+                    <input matInput [owlDateTime]="dt2" value="{{targetTache.date | date: 'dd/MM/yyyy à HH:mm'}}" placeholder="Date/Heure :" formControlName="date"
+                        [(ngModel)]="targetTache.date" [owlDateTimeTrigger]="dt2" autocomplete="off" [min]="currentDate">
                     <mat-icon matSuffix [owlDateTimeTrigger]="dt2">calendar_today</mat-icon>
                     <owl-date-time #dt2></owl-date-time>
                     
@@ -23,13 +34,13 @@
 
             <div class="row">
                 <mat-form-field class="col-6">
-                    <input matInput placeholder="Durée : " [(ngModel)]="nouvelleTache.duree" formControlName="duree">
+                    <input matInput placeholder="Durée : " [(ngModel)]="targetTache.duree" formControlName="duree">
                 </mat-form-field>
 
                 <mat-form-field class="col-6">
                     <mat-label>Avancement :</mat-label>
-                    <mat-select [(ngModel)]="varAvancement" formControlName="avancement" id="avancement">
-                        <mat-option *ngFor="let avancement of listAvancement" [value]="avancement.idAvancement">
+                    <mat-select [compareWith]="byIdAvancement" [(ngModel)]="targetTache.avancement" formControlName="avancement" id="avancement">
+                        <mat-option *ngFor="let avancement of listAvancement" [value]="avancement">
                             {{avancement.libelle}}
                         </mat-option>
                     </mat-select>
@@ -44,8 +55,8 @@
             <div class="row">
                 <mat-form-field class="col-6">
                     <mat-label>Personne :</mat-label>
-                    <mat-select [(ngModel)]="varPersonne" formControlName="personne" id="personne">
-                        <mat-option *ngFor="let personne of listPersonne" [value]="personne.idPersonne">
+                    <mat-select [compareWith]="byIdPersonne" [(ngModel)]="targetTache.personne" formControlName="personne" id="personne">
+                        <mat-option *ngFor="let personne of listPersonne" [value]="personne">
                             {{personne.nom}}
                         </mat-option>
                     </mat-select>
@@ -58,7 +69,9 @@
             </div>
 
             <div class="form-group col-lg">
-                <button type="submit" class="btn btn-outline-success">Ajouter</button>
+                <button type="button" (click)="test()" class="btn btn-outline-success">test</button>
+                &nbsp;
+                <button type="submit" class="btn btn-outline-success">Modifier</button>
                 &nbsp;
                 <button class="btn btn-secondary" type="reset" (click)="onReset()">Annuler</button>
             </div>

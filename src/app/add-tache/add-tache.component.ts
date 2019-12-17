@@ -7,7 +7,11 @@ import { Tache } from '../models/tache';
 import { TacheService } from '../service/tache/tache.service';
 import { Avancement } from '../models/avancement';
 import { AvancementService } from '../service/avancement/avancement.service';
+import {Personne} from '../models/personne';
+import {PersonneService} from '../service/personne/personne.service';
 import {MatDatepickerInputEvent} from '@angular/material/datepicker';
+import { DatePipe } from '@angular/common';
+
 
 @Component({
   selector: 'app-add-tache',
@@ -24,28 +28,39 @@ export class AddTacheComponent implements OnInit {
   submitted = false;
 
   listAvancement: Avancement[];
+  listPersonne : Personne[];
   defaultValue: number;
 
   varAvancement: any;
+  varPersonne : any;
 
-  constructor(private router: Router, private tacheService: TacheService, private avancementService: AvancementService,
-    private formBuilder: FormBuilder) { }
+  currentDate = new Date();
+  
+
+  constructor(private router: Router,private personneService : PersonneService, private tacheService: TacheService, private avancementService: AvancementService,
+    private formBuilder: FormBuilder,private datePipe: DatePipe) { }
 
   ngOnInit() {
     this.avancementService.getAllAvancement().subscribe(data => {
       this.listAvancement = data;
 
-      this.defaultValue = this.listAvancement[1].idAvancement;
+      console.log(this.currentDate);
+
+      this.defaultValue = this.listAvancement[0].idAvancement;
       this.varAvancement = this.defaultValue;
       
       this.formulaireTache.get('avancement').setValue(this.varAvancement);
+      this.personneService.getAllPersonne().subscribe(data => {
+        this.listPersonne = data;
+      })
     });
 
     this.formulaireTache = this.formBuilder.group({
       activite: ['', Validators.required],
       date: [''],
       duree: [''],
-      avancement: ['', Validators.required]
+      avancement: ['', Validators.required],
+      personne: ['',Validators.required]
     });    
 
   }
@@ -71,14 +86,14 @@ export class AddTacheComponent implements OnInit {
   }
 
   addTache() {
-    console.log(this.nouvelleTache)
+       
     this.tacheService.addTache(this.nouvelleTache).subscribe((res: Response) => {
       console.log(res);
 
       if (res['idTache'] != null) {
         console.log(this.varAvancement);
         if (this.varAvancement != null) {
-          this.tacheService.affecterAvancementTache(res['idTache'], this.varAvancement).subscribe((res => {
+          this.tacheService.affecterTache(res['idTache'], this.varAvancement, this.varPersonne).subscribe((res => {
             console.log(res);
             if (res) {
               this.notif();
