@@ -52,6 +52,7 @@ import { UpdateTacheComponent } from './update-tache/update-tache.component';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -73,7 +74,7 @@ import { UpdateTacheComponent } from './update-tache/update-tache.component';
     UpdatePersonneComponent,
     CalendrierComponent,
     AddTacheComponent,
-    UpdateTacheComponent
+    UpdateTacheComponent,
   ],
   imports: [
     BrowserModule,

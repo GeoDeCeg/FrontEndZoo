@@ -8,8 +8,6 @@ import { TacheService } from '../service/tache/tache.service';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
-import { formatDate } from '@fullcalendar/core';
-import { locale } from 'moment';
 import { DatePipe } from '@angular/common';
 
 @Component({
@@ -26,12 +24,10 @@ export class UpdateTacheComponent implements OnInit {
   listPersonne: Personne[];
   listAvancement: Avancement[];
   listTache : Tache[];
-  listDate : string[];
 
-  defaultValue: number;
   idTacheUpdate: number;
+  dateTarget = new Date();
 
-  testDate : Date;
   bool: false;
   pipe : DatePipe;
 
@@ -50,11 +46,6 @@ export class UpdateTacheComponent implements OnInit {
         this.tacheService.getAllTache().subscribe(data=>{
           this.listTache =data;
           
-          // this.listTache.forEach(element => {
-          //   var date = this.pipe.transform(element.date,'medium');
-          //   this.listDate.push(date);
-          //   console.log(date);
-          // });
         })
       })
     });
@@ -73,7 +64,7 @@ export class UpdateTacheComponent implements OnInit {
   target() {
     this.tacheService.getTacheById(this.idTacheUpdate).subscribe(data => {
       this.targetTache = data;
-      
+      this.dateTarget = new Date(this.targetTache.date);
     })
   }
 
@@ -97,6 +88,7 @@ export class UpdateTacheComponent implements OnInit {
 
   updateTache() {
 
+    this.targetTache.date = this.dateTarget;
     this.tacheService.updateTache(this.targetTache.idTache,this.targetTache).subscribe((res: Response) => {
       if (res) {
        this.notif();
@@ -131,7 +123,9 @@ export class UpdateTacheComponent implements OnInit {
   }
   
   test(){
-    console.log(this.targetTache.date);
+    
+    console.log(this.dateTarget);
+    this.dateTarget
   }
 
 

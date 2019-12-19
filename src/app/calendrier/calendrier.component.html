@@ -7,12 +7,12 @@
                 <full-calendar #calendar [locale]="options.locale" defaultView="timeGridWeek" [weekends]="false"
                     [plugins]="calendarPlugins" [events]="calendarEvents" (dateClick)="handleDateClick($event)"
                     [allDaySlot]="false" [minTime]="options.minTime" [maxTime]="options.maxTime"
-                    [header]="{
-                    left: 'prev,next today',
+                    (eventClick)="eventClick($event)" [header]="{
+                    left: 'prev,next today',    
                     center: 'title',
                     right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
                     }" [eventColor]="options.eventColor" [eventTextColor]="options.eventTextColor" [droppable]="true"
-                    [editable]="true"(eventResize)="eventResize($event)" [handleWindowResize]="true" [height]=593>
+                    [editable]="true" (eventResize)="eventResize($event)" [handleWindowResize]="true" [height]=593>
 
                 </full-calendar>
 
@@ -41,7 +41,110 @@
                         </div>
                     </div>
                 </div>
-                
+                <div class="modal" id="myModalUp" [style.display]="showModalUp ? 'block' : 'none'">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                                <h4 class="modal-title">Modification de tâche</h4>
+                                <button type="button" class="close" data-dismiss="modal"
+                                    (click)="hide()">&times;</button>
+                            </div>
+
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                                <form [formGroup]="formulaireUpdateTache" (ngSubmit)="onSubmit()">
+                                    <div class="row">
+
+                                        <mat-form-field class="col-6">
+                                            <input matInput placeholder="Activite : " [(ngModel)]="targetTache.activite"
+                                                formControlName="activite"
+                                                [ngClass]="{'is-invalid': submitted && f.activite.errors }">
+                                            <mat-error *ngIf="submitted && f.activite.errors" class="invalid-feedback">
+                                                <mat-error *ngIf="f.activite.errors.required">Une activité est
+                                                    obligatoire
+                                                </mat-error>
+                                            </mat-error>
+                                        </mat-form-field>
+
+                                        <mat-form-field class="col-6" appearance="outline">
+                                            <input matInput [owlDateTime]="dt2"
+                                                
+                                                placeholder="Date/Heure :" formControlName="date"
+                                                [(ngModel)]="dateTarget" [owlDateTimeTrigger]="dt2"
+                                                autocomplete="off" [min]="currentDate">
+                                            <mat-icon matSuffix [owlDateTimeTrigger]="dt2">calendar_today</mat-icon>
+                                            <owl-date-time #dt2></owl-date-time>
+
+                                        </mat-form-field>
+                                    </div>
+
+                                    <div class="row">
+                                        <mat-form-field class="col-6">
+                                            <input matInput placeholder="Durée : " [(ngModel)]="targetTache.duree"
+                                                formControlName="duree">
+                                        </mat-form-field>
+
+                                        <mat-form-field class="col-6">
+                                            <mat-label>Avancement :</mat-label>
+                                            <mat-select [compareWith]="byIdAvancement"
+                                                [(ngModel)]="targetTache.avancement" formControlName="avancement"
+                                                id="avancement">
+                                                <mat-option *ngFor="let avancement of listAvancement"
+                                                    [value]="avancement">
+                                                    {{avancement.libelle}}
+                                                </mat-option>
+                                            </mat-select>
+                                            <mat-error *ngIf="submitted && f.avancement.errors"
+                                                class="invalid-feedback">
+                                                <mat-error *ngIf="f.avancement.errors.required">Un avancement concernant
+                                                    la tâche est
+                                                    obligatoire
+                                                </mat-error>
+                                            </mat-error>
+                                        </mat-form-field>
+                                    </div>
+
+                                    <div class="row">
+                                        <mat-form-field class="col-6">
+                                            <mat-label>Personne :</mat-label>
+                                            <mat-select [compareWith]="byIdPersonne" [(ngModel)]="targetTache.personne"
+                                                formControlName="personne" id="personne">
+                                                <mat-option *ngFor="let personne of listPersonne" [value]="personne">
+                                                    {{personne.nom}}
+                                                </mat-option>
+                                            </mat-select>
+                                            <mat-error *ngIf="submitted && f.personne.errors" class="invalid-feedback">
+                                                <mat-error *ngIf="f.personne.errors.required">Une personne concernée par
+                                                    la tâche est
+                                                    obligatoire
+                                                </mat-error>
+                                            </mat-error>
+                                        </mat-form-field>
+                                    </div>
+
+                                    <div class="form-group col-lg">
+                                        <button type="button" (click)="test()"
+                                            class="btn btn-outline-success">test</button>
+                                        &nbsp;
+                                        <button type="submit" class="btn btn-outline-success">Modifier</button>
+                                        &nbsp;
+                                        <button class="btn btn-secondary" type="reset"
+                                            (click)="onReset()">Annuler</button>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal"
+                                    (click)="hide()">Close</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
