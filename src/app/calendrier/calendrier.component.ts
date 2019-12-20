@@ -214,4 +214,13 @@ export class CalendrierComponent implements OnInit {
     window.location.reload();
   }
 
+
+  supprimer(){
+    console.log(this.targetTache.idTache);
+    this.tacheService.deleteTache(this.targetTache.idTache).subscribe(res =>{
+      console.log(res);
+      this.refresh();
+    });
+    
+  }
 }
