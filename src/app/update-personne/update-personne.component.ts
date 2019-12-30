@@ -7,7 +7,7 @@ import { Tache } from '../models/tache';
 import { TacheService } from '../service/tache/tache.service';
 import { Zone } from '../models/zone';
 import { ZoneService } from '../service/zone/zone.service';
-import { FormBuilder, Validators, FormGroup, FormControl } from '@angular/forms';
+import { FormBuilder, Validators, FormGroup} from '@angular/forms';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 
@@ -25,7 +25,7 @@ export class UpdatePersonneComponent implements OnInit {
   listPersonne: Personne[];
   listRole: Role[];
   listZone: Zone[];
-  listTache: Tache[];
+  
 
   idPersonneUpdate: number;
 
@@ -46,7 +46,7 @@ export class UpdatePersonneComponent implements OnInit {
       login: ['', Validators.required],
       password: ['', Validators.required],
       role: ['', Validators.required],
-      tache: ['', Validators.required],
+      
       zone: ['', Validators.required]
     });
 
@@ -56,9 +56,7 @@ export class UpdatePersonneComponent implements OnInit {
         this.listRole = data;
         this.zoneService.getAllZone().subscribe(data => {
           this.listZone = data;
-          this.tacheService.getAllTache().subscribe(data => {
-            this.listTache = data;
-          })
+          
         })
       })
     })
@@ -107,10 +105,7 @@ export class UpdatePersonneComponent implements OnInit {
   byIdZone(zone: Zone, zoneModel: Zone) {
     return zone.idZone === zoneModel.idZone;
   }
-  byIdTache(tache: Tache, tacheModel: Tache) {
-    return tache.idTache === tacheModel.idTache
-      ;
-  }
+  
 
   notif() {
 

@@ -29,4 +29,8 @@ export class NourritureService {
     return this.http.put("http://localhost:8080/nourriture/"+id,nourriture).pipe();
   }
 
+  count(){
+    return this.http.get("http://localhost:8080/nourriture/count").pipe();
+  }
+
 }

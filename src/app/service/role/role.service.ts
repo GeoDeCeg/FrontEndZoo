@@ -29,4 +29,8 @@ export class RoleService {
   updateRole(id : number , role : Role){
     return this.http.put("http://localhost:8080/role/"+id,role).pipe();
   }
+
+  count(){
+    return this.http.get("http://localhost:8080/role/count").pipe();
+  }
 }

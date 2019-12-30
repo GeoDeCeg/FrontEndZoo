@@ -1,0 +1,36 @@
+<div class="container-fluid">
+    <div align="center">
+        <mat-form-field>
+            <mat-label>Rôle à modifier</mat-label>
+            <mat-select [(ngModel)]="idRole" (selectionChange)="target($event.value)">
+                <mat-option *ngFor="let role of listRole" [value]="role.idRole">
+                    {{role.libelle}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        &nbsp;
+        <mat-checkbox [(ngModel)]="bool" color="warn">Informations</mat-checkbox>
+
+        <form *ngIf="bool" [formGroup]="formulaireUpdateRole" (ngSubmit)="onSubmit()">
+            <div class="row">
+                <div class="form-group col-lg">
+                    <mat-form-field class="col-6">
+                        <input matInput placeholder="Libelle : " [(ngModel)]="targetRole.libelle"
+                            formControlName="libelle" [ngClass]="{'is-invalid': submitted && f.libelle.errors }">
+                        <mat-error *ngIf="submitted && f.libelle.errors" class="invalid-feedback">
+                            <mat-error *ngIf="f.libelle.errors.required">Un libelle de rôle est obligatoire
+                            </mat-error>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="form-group col-lg">
+                <button type="submit" [disabled]="!formulaireUpdateRole.valid"
+                    class="btn btn-outline-success">Modifier</button>
+                &nbsp;
+                <button class="btn btn-secondary" type="reset" (click)="onReset()">Annuler</button>
+            </div>
+        </form>
+    </div>
+</div>

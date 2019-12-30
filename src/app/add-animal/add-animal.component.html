@@ -1,0 +1,81 @@
+<div class="container-fluid">
+    <div align="center">
+        <form [formGroup]="formulaireAnimal" (ngSubmit)="onSubmit()">
+            <div class="row">
+
+                <mat-form-field class="col-6">
+                    <input matInput placeholder="Nom : " [(ngModel)]="nouvelAnimal.nom" formControlName="nom"
+                        [ngClass]="{'is-invalid': submitted && f.nom.errors }">
+                    <mat-error *ngIf="submitted && f.nom.errors" class="invalid-feedback">
+                        <mat-error *ngIf="f.nom.errors.required">Le champ nom est obligatoire
+                        </mat-error>
+                    </mat-error>
+                </mat-form-field>
+
+
+                <mat-form-field class="col-6">
+                    <input matInput placeholder="Famille : " [(ngModel)]="nouvelAnimal.famille"
+                        formControlName="famille" [ngClass]="{'is-invalid': submitted && f.famille.errors }">
+                    <mat-error *ngIf="submitted && f.famille.errors" class="invalid-feedback">
+                        <mat-error *ngIf="f.famille.errors.required">Le champ famille est obligatoire
+                        </mat-error>
+                    </mat-error>
+                </mat-form-field>
+
+            </div>
+
+            <div class="row">
+
+                <mat-form-field class="col-6">
+                    <input matInput placeholder="Age : " [(ngModel)]="nouvelAnimal.age" formControlName="age"
+                        [ngClass]="{'is-invalid': submitted && f.age.errors }">
+                    <!-- <mat-error *ngIf="submitted && f.age.errors" class="invalid-feedback">
+                        <mat-error *ngIf="f.age.errors.email">L'email n'est pas valide
+                        </mat-error>
+                    </mat-error> -->
+                </mat-form-field>
+
+
+                <mat-form-field class="col-6">
+                    <mat-label>Enclos</mat-label>
+                    <mat-select [(ngModel)]="varEnclos" formControlName="enclos" id="enclos">
+                        <mat-option *ngFor="let enclos of listEnclos" [value]="enclos.idEnclos">
+                            {{enclos.numero}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="submitted && f.enclos.errors" class="invalid-feedback">
+                        <mat-error *ngIf="f.enclos.errors.required">
+                            <mat-error *ngIf="f.enclos.errors.required">Un enclos est obligatoire</mat-error>
+                        </mat-error>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+
+            <div class="row">
+                <mat-form-field class="col-6">
+                    <mat-label>Nourriture</mat-label>
+                    <mat-select [(ngModel)]="varNourriture" formControlName="nourriture" id="nourriture">
+                        <mat-option *ngFor="let nourriture of listNourriture" [value]="nourriture.idNourriture">
+                            {{nourriture.produit}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="submitted && f.zone.errors" class="invalid-feedback">
+                        <mat-error *ngIf="f.nourriture.errors.required">
+                            <mat-error *ngIf="f.nourriture.errors.required">Un type de nourriture est obligatoire
+                            </mat-error>
+                        </mat-error>
+                    </mat-error>
+                </mat-form-field>
+
+            </div>
+
+
+            <div class="form-group col-lg">
+                <button type="submit" class="btn btn-outline-success">Ajouter</button>
+                &nbsp;
+                <button class="btn btn-secondary" type="reset" (click)="onReset()">Annuler</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -36,4 +36,12 @@ export class AnimalService {
   affecterNourritureAnimal(idAnimal:number, idNourriture : number){
     return this.http.put("http://localhost:8080/animal/enclos/"+idAnimal+"/"+idNourriture,"").pipe();
   }
+
+  affecterAnimal(idAnimal:number, idEnclos : number, idNourriture){
+    return this.http.put("http://localhost:8080/animal/all/"+idAnimal+"/"+idEnclos+"/"+idNourriture,"").pipe();
+  }
+
+  count(){
+    return this.http.get("http://localhost:8080/animal/count").pipe();
+  }
 }

@@ -32,4 +32,8 @@ export class EnclosService {
   affecterZoneEnclos(idEnclos : number, idZone : number){
     return this.http.put("http://localhost:8080/enclos/zone/"+idEnclos+"/"+idZone,"").pipe();
   }
+
+  count(){
+    return this.http.get("http://localhost:8080/enclos/count").pipe();
+  }
 }

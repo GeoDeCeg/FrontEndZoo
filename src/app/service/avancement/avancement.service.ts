@@ -28,4 +28,8 @@ export class AvancementService {
   deleteAvancement (id : number){
     return this.http.delete("http://localhost:8080/avancement/"+id).pipe();
   }
+
+  count(){
+    return this.http.get("http://localhost:8080/avancement/count").pipe();
+  }
 }

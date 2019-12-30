@@ -27,10 +27,10 @@ export class AddPersonneComponent implements OnInit {
   // listTache: Tache[];
   listZone: Zone[];
   varRole: any;
-  varTache: any;
+  
   varZone: any;
 
-  constructor(private formBuilder: FormBuilder, private router: Router, private personneService: PersonneService,
+  constructor(private formBuilder: FormBuilder, private personneService: PersonneService,
     private roleService: RoleService, private zoneService: ZoneService) { }
 
   ngOnInit() {
@@ -42,7 +42,6 @@ export class AddPersonneComponent implements OnInit {
       login: ['', Validators.required],
       password: ['', Validators.required],
       role: ['', Validators.required],
-      // tache: ['', Validators.required],
       zone: ['', Validators.required],
     });
     this.roleService.getAllRole().subscribe(data => {
@@ -84,7 +83,6 @@ export class AddPersonneComponent implements OnInit {
 
       if (res['idPersonne'] != null) {
         console.log(this.varRole);
-        console.log(this.varTache);
         console.log(this.varZone);
 
         this.personneService.affecterPersonne(res['idPersonne'], this.varRole, this.varZone).subscribe((res => {

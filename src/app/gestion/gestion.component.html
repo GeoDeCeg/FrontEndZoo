@@ -44,7 +44,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card">
+                    <!-- <div class="card">
                         <div class="card-header" id="headingTwoS">
                             <h5 class="mb-0">
                                 <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
@@ -59,7 +59,7 @@
 
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -67,7 +67,7 @@
             <div class="card-header card-header-warning card-header-icon" href="#gAnimal" data-toggle="collapse">
                 <div class="card-icon">
                     <i class="material-icons">pets</i>
-                    <a routerLink="/table" style="color: white;">1</a>
+                    <a routerLink="/table" style="color: white;">{{countAnimal}}</a>
                 </div>
                 <h3 class="card-title" style="color: orange;" align=center>ANIMAUX</h3>
             </div>
@@ -86,7 +86,7 @@
                         </div>
                         <div id="collapseOneA" class="collapse" aria-labelledby="headingOneA" data-parent="#accordionA">
                             <div class="card-body">
-
+                                <app-add-animal></app-add-animal>
                             </div>
                         </div>
                     </div>
@@ -102,7 +102,7 @@
                         </div>
                         <div id="collapseTwoA" class="collapse" aria-labelledby="headingTwoA" data-parent="#accordionA">
                             <div class="card-body">
-
+                                <app-update-animal></app-update-animal>
                             </div>
                         </div>
                     </div>
@@ -148,7 +148,7 @@
             <div class="card-header card-header-warning card-header-icon" href="#gRole" data-toggle="collapse">
                 <div class="card-icon">
                     <i class="material-icons">build</i>
-                    <a routerLink="/table" style="color: white;">1</a>
+                    <a routerLink="/table" style="color: white;">{{countRole}}</a>
                 </div>
                 <h3 class="card-title" style="color: orange" align=center>RÔLES</h3>
             </div>
@@ -166,7 +166,7 @@
                         </div>
                         <div id="collapseOneR" class="collapse" aria-labelledby="headingOneR" data-parent="#accordionR">
                             <div class="card-body">
-
+                                <app-add-role></app-add-role>
                             </div>
                         </div>
                     </div>
@@ -182,7 +182,7 @@
                         </div>
                         <div id="collapseTwoR" class="collapse" aria-labelledby="headingTwoR" data-parent="#accordionR">
                             <div class="card-body">
-
+                                <app-update-role></app-update-role>
                             </div>
                         </div>
                     </div>
@@ -255,7 +255,7 @@
             <div class="card-header card-header-warning card-header-icon" href="#gZone" data-toggle="collapse">
                 <div class="card-icon">
                     <i class="material-icons">view_quilt</i>
-                    <a routerLink="/table" style="color: white;">1</a>
+                    <a routerLink="/table" style="color: white;">{{countZone}}</a>
                 </div>
                 <h3 class="card-title" style="color: orange;" align=center>ZONES</h3>
             </div>
@@ -300,7 +300,7 @@
             <div class="card-header card-header-warning card-header-icon" href="#gNourriture" data-toggle="collapse">
                 <div class="card-icon">
                     <i class="material-icons">shopping_cart</i>
-                    <a routerLink="/table" style="color: white;">1</a>
+                    <a routerLink="/table" style="color: white;">{{countNourriture}}</a>
                 </div>
                 <h3 class="card-title" style="color: orange;" align=center>NOURRITURE</h3>
             </div>
@@ -362,7 +362,7 @@
             <div class="card-header card-header-warning card-header-icon" href="#gEnclos" data-toggle="collapse">
                 <div class="card-icon">
                     <i class="material-icons">eco</i>
-                    <a routerLink="/table" style="color: white;">1</a>
+                    <a routerLink="/table" style="color: white;">{{countEnclos}}</a>
                 </div>
                 <h3 class="card-title" style="color: orange;" align=center>ENCLOS</h3>
             </div>
@@ -424,7 +424,7 @@
             <div class="card-header card-header-warning card-header-icon" href="#gAvancement" data-toggle="collapse">
                 <div class="card-icon">
                     <i class="material-icons">done_all</i>
-                    <a routerLink="/table" style="color: white;">1</a>
+                    <a routerLink="/table" style="color: white;">{{countAvancement}}</a>
                 </div>
                 <h3 class="card-title" style="color: orange;" align=center>AVANCEMENT</h3>
             </div>

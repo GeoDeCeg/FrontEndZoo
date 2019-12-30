@@ -1,0 +1,27 @@
+<div class="container-fluid">
+    <div align="center">
+        <form [formGroup]="formulaireRole" (ngSubmit)="onSubmit()">
+            <div class="row">
+                <div class="form-group col-lg">
+                    <mat-form-field class="col-6">
+                        <input matInput placeholder="Libelle : " [(ngModel)]="nouveauRole.libelle"
+                            formControlName="libelle" [ngClass]="{'is-invalid': submitted && f.libelle.errors }">
+                        <mat-error *ngIf="submitted && f.libelle.errors" class="invalid-feedback">
+                            <mat-error *ngIf="f.libelle.errors.required">Un libelle de rôle est obligatoire
+                            </mat-error>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+
+
+
+
+            <div class="form-group col-lg">
+                <button type="submit" class="btn btn-outline-success">Ajouter</button>
+                &nbsp;
+                <button class="btn btn-secondary" type="reset" (click)="onReset()">Annuler</button>
+            </div>
+        </form>
+    </div>
+</div>

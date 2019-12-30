@@ -46,11 +46,10 @@ import {MatIconModule} from '@angular/material/icon';
 import {MAT_MOMENT_DATE_ADAPTER_OPTIONS} from '@angular/material-moment-adapter'
 import { LOCALE_ID } from '@angular/core';
 import { UpdateTacheComponent } from './update-tache/update-tache.component';
-
-
-
-
-
+import { AddAnimalComponent } from './add-animal/add-animal.component';
+import { UpdateAnimalComponent } from './update-animal/update-animal.component';
+import { AddRoleComponent } from './add-role/add-role.component';
+import { UpdateRoleComponent } from './update-role/update-role.component';
 
 
 @NgModule({
@@ -75,6 +74,10 @@ import { UpdateTacheComponent } from './update-tache/update-tache.component';
     CalendrierComponent,
     AddTacheComponent,
     UpdateTacheComponent,
+    AddAnimalComponent,
+    UpdateAnimalComponent,
+    AddRoleComponent,
+    UpdateRoleComponent,
   ],
   imports: [
     BrowserModule,

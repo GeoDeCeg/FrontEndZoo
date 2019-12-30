@@ -80,14 +80,6 @@
                 </mat-form-field>
 
 
-                <mat-form-field class="col-6">
-                    <mat-label>Tâche</mat-label>
-                    <mat-select [compareWith]="byIdTache" [(ngModel)]="targetPersonne.tache" formControlName="tache">
-                        <mat-option *ngFor="let tache of listTache, let i = index" [value]="tache">
-                            {{tache.activite}}
-                        </mat-option>
-                    </mat-select>
-                </mat-form-field>
             </div>
             <div class="form-group col-lg">
                 <button type="submit" [disabled]="!formulaireUpdatePersonne.valid" class="btn btn-outline-success">Modifier</button>

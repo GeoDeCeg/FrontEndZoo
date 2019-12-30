@@ -29,4 +29,8 @@ export class ZoneService {
     return this.http.put("http://localhost:8080/zone/"+id,zone).pipe();
   }
 
+  count(){
+    return this.http.get("http://localhost:8080/zone/count").pipe();
+  }
+
 }

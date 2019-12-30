@@ -1,0 +1,74 @@
+<div class="container-fluid">
+    <div align="center">
+        <mat-form-field>
+            <mat-label>Animal à modifier</mat-label>
+            <mat-select [(ngModel)]="idAnimalTarget" (selectionChange)="target($event.value)">
+                <mat-option *ngFor="let animal of listAnimal" [value]="animal.idAnimal">
+                    {{animal.nom}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        &nbsp;
+        <mat-checkbox [(ngModel)]="bool" color="warn">Informations</mat-checkbox>
+
+        <form *ngIf="bool" [formGroup]="formulaireUpdateAnimal" (ngSubmit)="onSubmit()">
+            <div class="row">
+                <mat-form-field class="col-6">
+                    <input matInput placeholder="Nom : " [(ngModel)]="targetAnimal.nom" formControlName="nom"
+                        [ngClass]="{'is-invalid': submitted && f.nom.errors }">
+                    <mat-error *ngIf="submitted && f.nom.errors" class="invalid-feedback">
+                        <mat-error *ngIf="f.nom.errors.required">Le champ nom est obligatoire
+                        </mat-error>
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="col-6">
+                    <input matInput placeholder="Famille : " [(ngModel)]="targetAnimal.famille" formControlName="famille"
+                        [ngClass]="{'is-invalid': submitted && f.famille.errors }">
+                    <mat-error *ngIf="submitted && f.famille.errors" class="invalid-feedback">
+                        <mat-error *ngIf="f.famille.errors.required">Le champ famille est obligatoire
+                        </mat-error>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <mat-form-field class="col-6">
+                    <input matInput placeholder="Age : " [(ngModel)]="targetAnimal.age" formControlName="age"
+                        [ngClass]="{'is-invalid': submitted && f.age.errors }">
+                    <!-- <mat-error *ngIf="submitted && f.age.errors" class="invalid-feedback">
+                        <mat-error *ngIf="f.login.errors.required">Le champ login est obligatoire
+                        </mat-error>
+                    </mat-error> -->
+                </mat-form-field>
+
+            </div>
+            <div class="row">
+                
+                <mat-form-field class="col-6">
+                    <mat-label>Enclos</mat-label>
+                    <mat-select [compareWith]="byIdEnclos" [(ngModel)]="targetAnimal.enclos" formControlName="enclos">
+                        <mat-option *ngFor="let enclos of listEnclos, let i = index" [value]="enclos">
+                            {{enclos.numero}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <mat-form-field class="col-6">
+                    <mat-label>Zone</mat-label>
+                    <mat-select [compareWith]="byIdNourriture" [(ngModel)]="targetAnimal.nourriture" formControlName="nourriture">
+                        <mat-option *ngFor="let nourriture of listNourriture, let i = index" [value]="nourriture">
+                            {{nourriture.produit}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+            </div>
+            <div class="form-group col-lg">
+                <button type="submit" [disabled]="!formulaireUpdateAnimal.valid" class="btn btn-outline-success">Modifier</button>
+                &nbsp;
+                <button class="btn btn-secondary" type="reset" (click)="onReset()">Annuler</button>
+            </div>
+        </form>
+    </div>
+</div>
