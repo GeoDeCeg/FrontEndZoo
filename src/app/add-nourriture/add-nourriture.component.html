@@ -1,0 +1,37 @@
+<div class="container-fluid">
+    <div align="center">
+        <form [formGroup]="formulaireNourriture" (ngSubmit)="onSubmit()">
+            <div class="row">
+                <div class="form-group col-lg">
+                    <mat-form-field class="col-6">
+                        <input matInput placeholder="Produit : " [(ngModel)]="nouvelleNourriture.produit"
+                            formControlName="produit" [ngClass]="{'is-invalid': submitted && f.produit.errors }">
+                        <mat-error *ngIf="submitted && f.produit.errors" class="invalid-feedback">
+                            <mat-error *ngIf="f.produit.errors.required">Le nom du produit est obligatoire
+                            </mat-error>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-lg">
+                    <mat-form-field class="col-6">
+                        <input matInput type="number" placeholder="Stock (kg) : " [(ngModel)]="nouvelleNourriture.stock"
+                            formControlName="stock" [ngClass]="{'is-invalid': submitted && f.stock.errors }" autocomplete="off">
+                        <mat-error *ngIf="submitted && f.stock.errors" class="invalid-feedback">
+                            <mat-error *ngIf="f.stock.errors.pattern">Le stock doit être une quantité (ex : 5)
+                            </mat-error>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="form-group col-lg">
+                <button type="submit" class="btn btn-outline-success">Ajouter</button>
+                &nbsp;
+                <button class="btn btn-secondary" type="reset" (click)="onReset()">Annuler</button>
+            </div>
+        </form>
+    </div>
+</div>

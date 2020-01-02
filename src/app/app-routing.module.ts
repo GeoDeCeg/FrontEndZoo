@@ -12,6 +12,7 @@ import {EnclosComponent} from './enclos/enclos.component';
 import {AvancementComponent} from './avancement/avancement.component';
 import {GestionComponent} from './gestion/gestion.component';
 import {CalendrierComponent} from './calendrier/calendrier.component';
+import {ProfileComponent} from './profile/profile.component';
 
 
 
@@ -32,6 +33,10 @@ const routes: Routes = [
   {
     path:"calendrier",
     component:CalendrierComponent
+  },
+  {
+    path:"monprofil",
+    component:ProfileComponent
   }
 
 

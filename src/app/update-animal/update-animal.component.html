@@ -23,8 +23,8 @@
                 </mat-form-field>
 
                 <mat-form-field class="col-6">
-                    <input matInput placeholder="Famille : " [(ngModel)]="targetAnimal.famille" formControlName="famille"
-                        [ngClass]="{'is-invalid': submitted && f.famille.errors }">
+                    <input matInput placeholder="Famille : " [(ngModel)]="targetAnimal.famille"
+                        formControlName="famille" [ngClass]="{'is-invalid': submitted && f.famille.errors }">
                     <mat-error *ngIf="submitted && f.famille.errors" class="invalid-feedback">
                         <mat-error *ngIf="f.famille.errors.required">Le champ famille est obligatoire
                         </mat-error>
@@ -41,9 +41,6 @@
                     </mat-error> -->
                 </mat-form-field>
 
-            </div>
-            <div class="row">
-                
                 <mat-form-field class="col-6">
                     <mat-label>Enclos</mat-label>
                     <mat-select [compareWith]="byIdEnclos" [(ngModel)]="targetAnimal.enclos" formControlName="enclos">
@@ -55,8 +52,9 @@
             </div>
             <div class="row">
                 <mat-form-field class="col-6">
-                    <mat-label>Zone</mat-label>
-                    <mat-select [compareWith]="byIdNourriture" [(ngModel)]="targetAnimal.nourriture" formControlName="nourriture">
+                    <mat-label>Nourriture</mat-label>
+                    <mat-select [compareWith]="byIdNourriture" [(ngModel)]="targetAnimal.nourriture"
+                        formControlName="nourriture">
                         <mat-option *ngFor="let nourriture of listNourriture, let i = index" [value]="nourriture">
                             {{nourriture.produit}}
                         </mat-option>
@@ -65,7 +63,8 @@
 
             </div>
             <div class="form-group col-lg">
-                <button type="submit" [disabled]="!formulaireUpdateAnimal.valid" class="btn btn-outline-success">Modifier</button>
+                <button type="submit" [disabled]="!formulaireUpdateAnimal.valid"
+                    class="btn btn-outline-success">Modifier</button>
                 &nbsp;
                 <button class="btn btn-secondary" type="reset" (click)="onReset()">Annuler</button>
             </div>

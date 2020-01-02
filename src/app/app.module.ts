@@ -50,6 +50,8 @@ import { AddAnimalComponent } from './add-animal/add-animal.component';
 import { UpdateAnimalComponent } from './update-animal/update-animal.component';
 import { AddRoleComponent } from './add-role/add-role.component';
 import { UpdateRoleComponent } from './update-role/update-role.component';
+import { ProfileComponent } from './profile/profile.component';
+import { AddNourritureComponent } from './add-nourriture/add-nourriture.component';
 
 
 @NgModule({
@@ -78,6 +80,8 @@ import { UpdateRoleComponent } from './update-role/update-role.component';
     UpdateAnimalComponent,
     AddRoleComponent,
     UpdateRoleComponent,
+    ProfileComponent,
+    AddNourritureComponent,
   ],
   imports: [
     BrowserModule,
