@@ -17,10 +17,8 @@ import { AvancementService } from '../service/avancement/avancement.service';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
-
-
-
-
+import { Role } from '../models/role';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 
 
@@ -33,6 +31,7 @@ export class CalendrierComponent implements OnInit {
 
   listTache: Tache[];
   tache: Tache = new Tache();
+  tacheD: Tache = new Tache();
   options: OptionsInput;
   calendarVisible = true;
   calendarPlugins = [dayGridPlugin, timeGrigPlugin, interactionPlugin];
@@ -52,6 +51,12 @@ export class CalendrierComponent implements OnInit {
   listAvancement: Avancement[];
 
   dateTarget = new Date();
+  roleT: Role;
+  helper = new JwtHelperService();
+
+  isSoigneur: Boolean;
+  isAdmin: Boolean;
+  isManager: Boolean;
 
 
   constructor(private tacheService: TacheService, private personneService: PersonneService, private avancementService: AvancementService,
@@ -60,6 +65,15 @@ export class CalendrierComponent implements OnInit {
   // @ViewChild('calendar', { static: false }) fullcalendar: FullCalendarComponent;
 
   ngOnInit() {
+
+    if (localStorage.getItem('currentPersonne') != null) {
+      this.roleT = this.helper.decodeToken(localStorage.getItem('currentPersonne'))['role'];
+      console.log(this.roleT);
+      if (this.roleT.libelle == "Soigneur") {
+        this.isSoigneur = true;
+        console.log(this.isSoigneur);
+      }
+    }
 
     this.options = {
       locale: frLocale,
@@ -133,8 +147,28 @@ export class CalendrierComponent implements OnInit {
 
   }
 
-  handleDateClick() {
 
+  eventDrop(model) {
+    console.log(model);
+
+    var tacheD: Tache = new Tache();
+    var d = new Date(model.event._instance.range.start);
+    this.tacheService.getTacheById(model.event._def.extendedProps.idTache).subscribe(res => {
+      tacheD = res;
+
+      d.setHours(d.getHours() - 1);
+
+      tacheD.date = d;
+
+      this.tacheService.updateTache(model.event._def.extendedProps.idTache, tacheD).subscribe();
+    })
+
+    
+
+
+  }
+
+  handleDateClick() {
     this.showModal = true;
   }
 
@@ -149,11 +183,11 @@ export class CalendrierComponent implements OnInit {
   eventClick(model) {
 
     this.showModalUp = true;
-    
+
     console.log(model);
     this.tacheService.getTacheById(model.event._def.extendedProps.idTache).subscribe(res => {
       this.targetTache = res;
-      this.dateTarget= new Date(this.targetTache.date);
+      this.dateTarget = new Date(this.targetTache.date);
       console.log(this.targetTache);
       console.log(this.targetTache.avancement);
       console.log(this.targetTache.personne);
@@ -215,12 +249,12 @@ export class CalendrierComponent implements OnInit {
   }
 
 
-  supprimer(){
+  supprimer() {
     console.log(this.targetTache.idTache);
-    this.tacheService.deleteTache(this.targetTache.idTache).subscribe(res =>{
+    this.tacheService.deleteTache(this.targetTache.idTache).subscribe(res => {
       console.log(res);
       this.refresh();
     });
-    
+
   }
 }

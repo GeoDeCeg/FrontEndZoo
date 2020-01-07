@@ -52,6 +52,10 @@ import { AddRoleComponent } from './add-role/add-role.component';
 import { UpdateRoleComponent } from './update-role/update-role.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AddNourritureComponent } from './add-nourriture/add-nourriture.component';
+import { LoginComponent } from './login/login.component';
+import {JwtModule} from '@auth0/angular-jwt';
+import { RegisterComponent } from './register/register.component';
+import { BlockAccessComponent } from './block-access/block-access.component';
 
 
 @NgModule({
@@ -82,6 +86,9 @@ import { AddNourritureComponent } from './add-nourriture/add-nourriture.componen
     UpdateRoleComponent,
     ProfileComponent,
     AddNourritureComponent,
+    LoginComponent,
+    RegisterComponent,
+    BlockAccessComponent,
   ],
   imports: [
     BrowserModule,
@@ -102,6 +109,7 @@ import { AddNourritureComponent } from './add-nourriture/add-nourriture.componen
     AmazingTimePickerModule,
     OwlDateTimeModule,
     OwlNativeDateTimeModule,
+    JwtModule,
     MatIconModule,
 
 

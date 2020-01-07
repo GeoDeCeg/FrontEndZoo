@@ -1,8 +1,8 @@
-<div class="wrapper ">
-  <app-sidebar></app-sidebar>
+<div class="wrapper" *ngIf="!isLogin">
+  <app-sidebar ></app-sidebar>
   <div class="main-panel">
     <!-- Navbar -->
-    <app-navbar></app-navbar>
+    <app-navbar ></app-navbar>
     <!-- End Navbar -->
     <div class="content">
       <div class="container-fluid">
@@ -12,3 +12,10 @@
     <app-footer></app-footer>
   </div>
 </div>
+
+<div class="container-fluid" id="content" *ngIf="isLogin">
+  <div class="col-md-8 offset-md-2">
+    <app-login></app-login>
+  </div>
+</div>
+

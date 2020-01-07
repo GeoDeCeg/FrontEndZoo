@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
     <div class="container-fluid">
         <div class="navbar-wrapper">
-            <a class="navbar-brand">Bonjour XXXXXX</a>
+            <a class="navbar-brand">Bonjour {{prenomT}}</a>
         </div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index"
             aria-expanded="false" aria-label="Toggle navigation">
@@ -13,11 +13,9 @@
         <div class="collapse navbar-collapse justify-content-end">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" (click)="deco()">
                         <i class="material-icons">input</i>
-                        <p class="d-lg-none d-md-block">
-                            Deconnexion
-                        </p>
+                        <p class="d-lg-none d-md-block">Deconnexion</p>
                     </a>
                 </li>
             </ul>

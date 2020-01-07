@@ -2,41 +2,45 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {TableComponent} from './table/table.component';
 import {HomeComponent} from './home/home.component';
-import {PersonneComponent} from './personne/personne.component';
-import {AnimalComponent} from './animal/animal.component';
-import {RoleComponent} from './role/role.component';
-import {TacheComponent} from './tache/tache.component';
-import {ZoneComponent} from './zone/zone.component';
-import {NourritureComponent} from './nourriture/nourriture.component';
-import {EnclosComponent} from './enclos/enclos.component';
-import {AvancementComponent} from './avancement/avancement.component';
 import {GestionComponent} from './gestion/gestion.component';
 import {CalendrierComponent} from './calendrier/calendrier.component';
 import {ProfileComponent} from './profile/profile.component';
+import {LoginComponent} from './login/login.component';
+import {AuthGuardService} from './service/auth-guard/auth-guard.service';
+
 
 
 
 const routes: Routes = [
 
   {
-    path:"",
-    component: HomeComponent
+    path:"home",    
+    component: HomeComponent,
+    canActivate: [AuthGuardService]
   },
   {
     path:"table",
-    component: TableComponent
+    component: TableComponent,
+    canActivate: [AuthGuardService]
   },
   {
     path:"gestion",
-    component: GestionComponent
+    component: GestionComponent,
+    canActivate: [AuthGuardService]
   },
   {
     path:"calendrier",
-    component:CalendrierComponent
+    component:CalendrierComponent,
+    canActivate: [AuthGuardService]
   },
   {
     path:"monprofil",
-    component:ProfileComponent
+    component:ProfileComponent,
+    canActivate: [AuthGuardService]
+  },
+  {
+    path:"",
+    component: LoginComponent
   }
 
 

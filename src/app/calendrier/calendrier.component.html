@@ -12,11 +12,13 @@
                     center: 'title',
                     right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
                     }" [eventColor]="options.eventColor" [eventTextColor]="options.eventTextColor" [droppable]="true"
-                    [editable]="true" (eventResize)="eventResize($event)" [handleWindowResize]="true" [height]=593>
+                    [editable]="true" (eventResize)="eventResize($event)"
+                    (eventDrop)="eventDrop($event)"
+                    [handleWindowResize]="true" [height]=593>
 
                 </full-calendar>
 
-                <div class="modal" id="myModal" [style.display]="showModal ? 'block' : 'none'">
+                <div *ngIf="!isSoigneur" class="modal" id="myModal" [style.display]="showModal ? 'block' : 'none'">
                     <div class="modal-dialog">
                         <div class="modal-content">
 
@@ -41,7 +43,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="modal" id="myModalUp" [style.display]="showModalUp ? 'block' : 'none'">
+                <div *ngIf="!isSoigneur" class="modal" id="myModalUp" [style.display]="showModalUp ? 'block' : 'none'">
                     <div class="modal-dialog">
                         <div class="modal-content">
 
