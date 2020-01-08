@@ -1,0 +1,14 @@
+<div class="container-fluid">
+    <div align="center">
+        <mat-form-field>
+            <mat-label>Tâche à modifier</mat-label>
+            <mat-select [(ngModel)]="idTacheUpdate" (selectionChange)="target($event.value)">
+                <mat-option *ngFor="let tache of listTache" [value]="tache.idTache">
+                    {{tache.activite}} {{tache.date  | date: 'dd/MM/yyyy à HH:mm'}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        &nbsp;
+        <mat-checkbox [(ngModel)]="bool" color="warn">Informations</mat-checkbox>
+    </div>
+</div>

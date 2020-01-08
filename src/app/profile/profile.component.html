@@ -6,36 +6,55 @@
                 <p class="card-category">Consulter / Editer mon profil</p>
             </div>
             <div class="card-body">
-                <form>
+                <form [formGroup]="formulaireProfile" (ngSubmit)="onSubmit()">
 
                     <div class="row">
                         <div class="col-md-5">
                             <div class="form-group">
-                                <label class="bmd-label-floating">Login</label>
-                                <input type="text" class="form-control">
+                                <label class="label">Login</label>
+                                <input type="text" class="form-control" placeholder="Login : "
+                                    [(ngModel)]="personne.login" formControlName="login"
+                                    [ngClass]="{'is-invalid': submitted && f.login.errors }">
+                                <div *ngIf="submitted && f.login.errors" class="invalid-feedback">
+                                    <div *ngIf="f.login.errors.required">Un login est obligatoire</div>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-8">
                             <div class="form-group">
-                                <label class="bmd-label-floating">Email</label>
-                                <input type="email" class="form-control">
+                                <label class="label">Email</label>
+                                <input type="email" class="form-control" placeholder="Email : "
+                                    [(ngModel)]="personne.email" formControlName="email"
+                                    [ngClass]="{'is-invalid': submitted && f.email.errors }">
+                                <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                    <div *ngIf="f.email.errors.required">Un email est obligatoire</div>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-8">
+                        <div class="col-md-6">
                             <div class="form-group">
-                                <label class="bmd-label-floating">Nom de famille</label>
-                                <input type="text" class="form-control">
+                                <label class="label">Nom de famille</label>
+                                <input type="text" class="form-control" placeholder="nom : " [(ngModel)]="personne.nom"
+                                    formControlName="nom" [ngClass]="{'is-invalid': submitted && f.nom.errors }">
+                                <div *ngIf="submitted && f.nom.errors" class="invalid-feedback">
+                                    <div *ngIf="f.nom.errors.required">Le champ est obligatoire</div>
+                                </div>
                             </div>
                         </div>
-                    
-                        <div class="col-md-4">
+
+                        <div class="col-md-6">
                             <div class="form-group">
-                                <label class="bmd-label-floating">Prénom</label>
-                                <input type="text" class="form-control">
+                                <label class="label">Prénom</label>
+                                <input type="text" class="form-control" placeholder="Prenom : "
+                                    [(ngModel)]="personne.prenom" formControlName="prenom"
+                                    [ngClass]="{'is-invalid': submitted && f.prenom.errors }">
+                                <div *ngIf="submitted && f.prenom.errors" class="invalid-feedback">
+                                    <div *ngIf="f.prenom.errors.required">Le champ est obligatoire</div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -43,23 +62,32 @@
                     <div class="row">
                         <div class="col-md-8">
                             <div class="form-group">
-                                <label class="bmd-label-floating">Ville</label>
-                                <input type="text" class="form-control">
+                                <label class="label">Mot de Passe</label>
+                                <input type="text" class="form-control" placeholder="Password : "
+                                    [(ngModel)]="personne.password" formControlName="password"
+                                    [ngClass]="{'is-invalid': submitted && f.password.errors }">
+                                <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                                    <div *ngIf="f.password.errors.required">Le champ est obligatoire</div>
+                                </div>
                             </div>
                         </div>
 
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label class="bmd-label-floating">Code postal</label>
-                                <input type="text" class="form-control">
+                                <label class="label">Rôle</label>
+                                <input type="text" class="form-control" placeholder="Rôle : "
+                                    [(ngModel)]="personne.role.libelle" formControlName="role"
+                                    [ngClass]="{'is-invalid': submitted && f.role.errors }" disabled>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label class="bmd-label-floating">Adresse</label>
-                                <input type="text" class="form-control">
+                                <label class="label">Secteur</label>
+                                <input type="text" class="form-control" type="text" class="form-control"
+                                    placeholder="Secteur : " [(ngModel)]="personne.zone.nom" formControlName="zone"
+                                    [ngClass]="{'is-invalid': submitted && f.zone.errors }" disabled>
                             </div>
                         </div>
                     </div>
@@ -78,11 +106,8 @@
                 </a>
             </div>
             <div class="card-body">
-                <h6 class="card-category text-gray">Rôle du user</h6>
-                <h4 class="card-title">User</h4>
-                <p class="card-description">
-                    date de création etc.
-                </p>
+                <h6 class="card-category text-gray">{{role}}</h6>
+                <h4 class="card-title">{{prenom}}</h4>
             </div>
         </div>
     </div>

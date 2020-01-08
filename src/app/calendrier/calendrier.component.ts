@@ -72,6 +72,61 @@ export class CalendrierComponent implements OnInit {
       if (this.roleT.libelle == "Soigneur") {
         this.isSoigneur = true;
         console.log(this.isSoigneur);
+
+        this.tacheService.getTacheByIdPersonne(this.helper.decodeToken(localStorage.getItem('currentPersonne'))['id']).subscribe(data => {
+          this.listTache = data;
+          this.calendarEvents = data;
+
+          this.personneService.getAllPersonne().subscribe(data => {
+            this.listPersonne = data;
+            this.avancementService.getAllAvancement().subscribe(data => {
+              this.listAvancement = data;
+            })
+          })
+          for (let index = 0; index < this.listTache.length; index++) {
+            this.calendarEvents[index].title = this.listTache[index].activite.toString() + " - " +
+              this.listTache[index].personne.nom.toString();
+    
+            this.calendarEvents[index].start = this.listTache[index].date;
+    
+            var date = new Date(this.listTache[index].date);
+            // console.log("date-----------"+date);
+            var date2 = moment(date).add(this.listTache[index].duree, 'h').toDate();
+            // console.log(date2);
+    
+            this.calendarEvents[index].end = date2;
+    
+          }
+        });
+
+      }else{
+        this.tacheService.getAllTache().subscribe(data => {
+          this.listTache = data;
+          this.calendarEvents = data;
+    
+          this.personneService.getAllPersonne().subscribe(data => {
+            this.listPersonne = data;
+            this.avancementService.getAllAvancement().subscribe(data => {
+              this.listAvancement = data;
+            })
+          })
+    
+    
+          for (let index = 0; index < this.listTache.length; index++) {
+            this.calendarEvents[index].title = this.listTache[index].activite.toString() + " - " +
+              this.listTache[index].personne.nom.toString();
+    
+            this.calendarEvents[index].start = this.listTache[index].date;
+    
+            var date = new Date(this.listTache[index].date);
+            // console.log("date-----------"+date);
+            var date2 = moment(date).add(this.listTache[index].duree, 'h').toDate();
+            // console.log(date2);
+    
+            this.calendarEvents[index].end = date2;
+    
+          }
+        })
       }
     }
 
@@ -94,33 +149,8 @@ export class CalendrierComponent implements OnInit {
       personne: ['', Validators.required]
     });
 
-    this.tacheService.getAllTache().subscribe(data => {
-      this.listTache = data;
-      this.calendarEvents = data;
 
-      this.personneService.getAllPersonne().subscribe(data => {
-        this.listPersonne = data;
-        this.avancementService.getAllAvancement().subscribe(data => {
-          this.listAvancement = data;
-        })
-      })
-
-
-      for (let index = 0; index < this.listTache.length; index++) {
-        this.calendarEvents[index].title = this.listTache[index].activite.toString() + " - " +
-          this.listTache[index].personne.nom.toString();
-
-        this.calendarEvents[index].start = this.listTache[index].date;
-
-        var date = new Date(this.listTache[index].date);
-        // console.log("date-----------"+date);
-        var date2 = moment(date).add(this.listTache[index].duree, 'h').toDate();
-        // console.log(date2);
-
-        this.calendarEvents[index].end = date2;
-
-      }
-    })
+    
   }
 
 
@@ -163,7 +193,7 @@ export class CalendrierComponent implements OnInit {
       this.tacheService.updateTache(model.event._def.extendedProps.idTache, tacheD).subscribe();
     })
 
-    
+
 
 
   }

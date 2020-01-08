@@ -17,6 +17,10 @@ export class TacheService {
     return this.http.get<Tache>("http://localhost:8080/tache/"+id).pipe();
   }
 
+  getTacheByIdPersonne(id:number){
+    return this.http.get<Tache[]>("http://localhost:8080/tache/byP/"+id).pipe();
+  }
+
   addTache(tache : Tache){
     return this.http.post("http://localhost:8080/tache",tache).pipe();
   }

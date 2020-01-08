@@ -11,6 +11,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 export class NavbarComponent implements OnInit {
 
   helper = new JwtHelperService();
+  prenomT: String;
 
   constructor(private authentificationService: AuthentificationService, private router: Router) { }
 
@@ -25,5 +26,5 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['']);
   }
 
-  prenomT: String;
+  
 }

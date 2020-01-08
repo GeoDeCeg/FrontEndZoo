@@ -56,6 +56,7 @@ import { LoginComponent } from './login/login.component';
 import {JwtModule} from '@auth0/angular-jwt';
 import { RegisterComponent } from './register/register.component';
 import { BlockAccessComponent } from './block-access/block-access.component';
+import { AvancementMesTachesComponent } from './avancement-mes-taches/avancement-mes-taches.component';
 
 
 @NgModule({
@@ -89,6 +90,7 @@ import { BlockAccessComponent } from './block-access/block-access.component';
     LoginComponent,
     RegisterComponent,
     BlockAccessComponent,
+    AvancementMesTachesComponent,
   ],
   imports: [
     BrowserModule,

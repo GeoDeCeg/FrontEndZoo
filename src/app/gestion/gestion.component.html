@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-lg-12">
-        <div class="card card-stats">
+        <div *ngIf="!isSoigneur" class="card card-stats">
             <div class="card-header card-header-warning card-header-icon" href="#gStaff" data-toggle="collapse">
                 <div class="card-icon">
                     <i class="material-icons">account_box</i>
@@ -44,26 +44,10 @@
                             </div>
                         </div>
                     </div>
-                    <!-- <div class="card">
-                        <div class="card-header" id="headingTwoS">
-                            <h5 class="mb-0">
-                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
-                                    aria-expanded="false" aria-controls="collapseTwo">
-                                    <i class="material-icons" style="color:orange;">assignment</i>
-                                    <a style="color: orange;">Gérer les affectations du personnel</a>
-                                </button>
-                            </h5>
-                        </div>
-                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                            <div class="card-body">
-
-                            </div>
-                        </div>
-                    </div> -->
                 </div>
             </div>
         </div>
-        <div class="card card-stats">
+        <div *ngIf="!isSoigneur" class="card card-stats">
             <div class="card-header card-header-warning card-header-icon" href="#gAnimal" data-toggle="collapse">
                 <div class="card-icon">
                     <i class="material-icons">pets</i>
@@ -144,7 +128,7 @@
                 </div>
             </div>
         </div>
-        <div class="card card-stats">
+        <div *ngIf="!isSoigneur" class="card card-stats">
             <div class="card-header card-header-warning card-header-icon" href="#gRole" data-toggle="collapse">
                 <div class="card-icon">
                     <i class="material-icons">build</i>
@@ -189,7 +173,7 @@
                 </div>
             </div>
         </div>
-        <div class="card card-stats">
+        <div *ngIf="!isSoigneur" class="card card-stats">
             <div class="card-header card-header-warning card-header-icon" href="#gTache" data-toggle="collapse">
                 <div class="card-icon">
                     <i class="material-icons">announcement</i>
@@ -251,7 +235,7 @@
                 </div>
             </div>
         </div>
-        <div class="card card-stats">
+        <div *ngIf="!isSoigneur" class="card card-stats">
             <div class="card-header card-header-warning card-header-icon" href="#gZone" data-toggle="collapse">
                 <div class="card-icon">
                     <i class="material-icons">view_quilt</i>
@@ -296,7 +280,7 @@
                 </div>
             </div>
         </div>
-        <div class="card card-stats">
+        <div *ngIf="!isSoigneur" class="card card-stats">
             <div class="card-header card-header-warning card-header-icon" href="#gNourriture" data-toggle="collapse">
                 <div class="card-icon">
                     <i class="material-icons">shopping_cart</i>
@@ -338,27 +322,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card">
-                        <div class="card-header" id="headingThreeN">
-                            <h5 class="mb-0">
-                                <button class="btn btn-link collapsed" data-toggle="collapse"
-                                    data-target="#collapseThreeN" aria-expanded="false" aria-controls="collapseThreeN">
-                                    <i class="material-icons" style="color:orange;">shopping_cart</i>
-                                    <a style="color: orange;">Gérer les commandes</a>
-                                </button>
-                            </h5>
-                        </div>
-                        <div id="collapseThreeN" class="collapse" aria-labelledby="headingThreeN"
-                            data-parent="#accordionN">
-                            <div class="card-body">
-
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
-        <div class="card card-stats">
+        <div *ngIf="!isSoigneur" class="card card-stats">
             <div class="card-header card-header-warning card-header-icon" href="#gEnclos" data-toggle="collapse">
                 <div class="card-icon">
                     <i class="material-icons">eco</i>
@@ -420,7 +387,7 @@
                 </div>
             </div>
         </div>
-        <div class="card card-stats">
+        <div *ngIf="!isSoigneur" class="card card-stats">
             <div class="card-header card-header-warning card-header-icon" href="#gAvancement" data-toggle="collapse">
                 <div class="card-icon">
                     <i class="material-icons">done_all</i>
@@ -459,6 +426,36 @@
                         </div>
                         <div id="collapseTwoAv" class="collapse" aria-labelledby="headingTwoAv"
                             data-parent="#accordionAv">
+                            <div class="card-body">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="voirMesTaches" class="card card-stats">
+            <div class="card-header card-header-warning card-header-icon" href="#gMesTaches" data-toggle="collapse">
+                <div class="card-icon">
+                    <i class="material-icons">announcement</i>
+                    <a routerLink="/table" style="color: white;">{{countMesTaches}}</a>
+                </div>
+                <h3 class="card-title" style="color: orange;" align=center>MES TÂCHES</h3>
+            </div>
+            <div class="col-md-12 collapse" id="gMesTaches">
+                <div id="accordionTa">
+                    <div class="card">
+                        <div class="card-header" id="headingThreeTa">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed" data-toggle="collapse"
+                                    data-target="#collapseThreeTa" aria-expanded="false" aria-controls="collapseThreeTa">
+                                    <i class="material-icons" style="color: orange;">done_outline</i>
+                                    <a style="color: orange;">Gérer l'état d'avancement de mes tâches</a>
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseThreeTa" class="collapse" aria-labelledby="headingThreeTa"
+                            data-parent="#accordionTa">
                             <div class="card-body">
 
                             </div>

@@ -7,7 +7,7 @@ import {CalendrierComponent} from './calendrier/calendrier.component';
 import {ProfileComponent} from './profile/profile.component';
 import {LoginComponent} from './login/login.component';
 import {AuthGuardService} from './service/auth-guard/auth-guard.service';
-
+import {BlockAccessService} from './service/block-access/block-access.service';
 
 
 
@@ -40,7 +40,8 @@ const routes: Routes = [
   },
   {
     path:"",
-    component: LoginComponent
+    component: LoginComponent,
+    canActivate: [BlockAccessService]
   }
 
 
